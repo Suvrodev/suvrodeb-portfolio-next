@@ -9,7 +9,7 @@ const CssSVG = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <path
           d="M127.844 289.088L23.6618 260.166L0.445312 -0.234375H255.555L232.314 260.125L127.844 289.088Z"
           fill="#264DE4"

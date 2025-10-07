@@ -1,6 +1,6 @@
 import React from "react";
 
-const FirebaseSVG = () => {
+const FirebaseSVG: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       width="40"
@@ -8,6 +8,7 @@ const FirebaseSVG = () => {
       viewBox="0 0 256 351"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         d="M0 282.998L2.12251 280.026L102.527 89.5119L102.739 87.4951L58.4788 4.35812C54.7706 -2.6061 44.3313 -0.845305 43.1143 6.95059L0 282.998Z"
@@ -61,9 +62,9 @@ const FirebaseSVG = () => {
           width="100.958"
           height="279.43"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -92,9 +93,9 @@ const FirebaseSVG = () => {
           width="64.7163"
           height="105.476"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             mode="normal"
             in="SourceGraphic"

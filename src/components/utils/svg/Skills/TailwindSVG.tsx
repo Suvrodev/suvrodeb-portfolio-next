@@ -22,8 +22,8 @@ const TailwindSVG = () => {
           y2="176.632"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#2298BD" />
-          <stop offset="1" stop-color="#0ED7B5" />
+          <stop stopColor="#2298BD" />
+          <stop offset="1" stopColor="#0ED7B5" />
         </linearGradient>
       </defs>
     </svg>

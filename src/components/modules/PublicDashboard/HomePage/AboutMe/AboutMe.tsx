@@ -2,7 +2,7 @@
 import { Typewriter } from "react-simple-typewriter";
 import "./AboutMe.css";
 
-import firebaseImage from "@/app/assets/AboutMe/react.png";
+import firebaseImage from "@/app/assets/AboutMe/Firebase.png";
 import reactImage from "@/app/assets/AboutMe/react.png";
 import suvrodebImage from "@/app/assets/AboutMe/Suvrodeb_1.png";
 import tailwindImage from "@/app/assets/AboutMe/tailwind.png";
@@ -42,7 +42,7 @@ const AboutMe = () => {
             className="w-[60x] h-[60px] rounded-md absolute top-10 md:top-[65px] right-[10px] md:right-[60px] abtAnim"
           />
           <Image
-            src={firebaseImage.src}
+            src={firebaseImage}
             alt="Firebase Image"
             width={60}
             height={60}
