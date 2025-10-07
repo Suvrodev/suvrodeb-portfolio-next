@@ -11,6 +11,7 @@ interface IProps {
 }
 
 const PublicDashboardLayout = ({ children }: IProps) => {
+  console.log("Public Dashboard Layout");
   return (
     <div className="flex">
       <div className="w-[20%] hidden md:block h-[100vh] sticky top-0 ">

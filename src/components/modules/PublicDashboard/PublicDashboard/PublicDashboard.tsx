@@ -1,3 +1,4 @@
+"use client";
 import "./PublicDashboard.css";
 import { FaFacebookF, FaTwitter, FaWhatsapp } from "react-icons/fa";
 
@@ -10,6 +11,8 @@ import {
   Info as InfoIcon,
   RssFeed as RssFeedIcon,
   Email as EmailIcon,
+  Build as BuildIcon, // 🛠️ for Skill
+  Psychology as PsychologyIcon, // 🧠 optional alternative
 } from "@mui/icons-material";
 import Image from "next/image";
 import Link from "next/link";
@@ -32,7 +35,9 @@ const PublicDashboard = () => {
               />
             </div>
           </Link>
-          <h1 className="text-center mt-2 font-bold text-[24px] animate-text resizeForHeader z-10">
+          <h1
+            className={`text-center mt-2 font-bold text-[24px] animate-text resizeForHeader z-10 `}
+          >
             Suvrodeb
           </h1>
         </div>
@@ -55,7 +60,7 @@ const PublicDashboard = () => {
           </div>
 
           <div className="flex gap-2 items-center">
-            <InfoIcon className="opacity-50" />
+            <PsychologyIcon className="opacity-50" />
             <Link href="skill" className="cursor-pointer u-line-effect">
               Skill
             </Link>
