@@ -1,6 +1,7 @@
 import AboutMe from "@/components/modules/PublicDashboard/HomePage/AboutMe/AboutMe";
 import Banner from "@/components/modules/PublicDashboard/HomePage/Banner/Banner";
 import Experience from "@/components/modules/PublicDashboard/HomePage/Experience/Experience";
+import MyService from "@/components/modules/PublicDashboard/HomePage/MyService/MyService/MyService";
 import React from "react";
 
 const HomePage = () => {
@@ -17,10 +18,10 @@ const HomePage = () => {
       <div className="px-5 md:px-36 py-10 sColor " id="experience">
         <Experience />
       </div>
-      {/* <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="service">
+      <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="service">
         <MyService />
       </div>
-      <div className="px-5 md:px-36 py-10 sColor" id="skill">
+      {/*   <div className="px-5 md:px-36 py-10 sColor" id="skill">
         <Skill />
       </div>
       <div className="p-2 md:p-10 sColor flex justify-start md:justify-center ">

@@ -1,9 +1,9 @@
 "use client";
-import { TService } from "@/utils/types/globalTypes";
 import "./ServiceBox.css";
 
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
+import { TService } from "@/components/types/globalTypes";
 interface IProps {
   service: TService;
 }

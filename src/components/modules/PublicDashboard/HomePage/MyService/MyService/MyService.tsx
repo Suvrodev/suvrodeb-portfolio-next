@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ServiceBox from "../ServiceBox/ServiceBox";
-import { TService } from "@/utils/types/globalTypes";
+import { TService } from "@/components/types/globalTypes";
 
 const MyService = () => {
   const [services, setServices] = useState([]);
