@@ -11,7 +11,7 @@ import Image from "next/image";
 
 const AboutMe = () => {
   return (
-    <div className="h-[1100px] w-full md:h-auto ">
+    <div className=" w-full md:h-auto ">
       <p className="reduceOpacity"> NICE TO MEET YOU!</p>
       <h1 className="text-2xl font-bold pText uppercase my-10 md:my-4">
         everything about me!
@@ -22,8 +22,8 @@ const AboutMe = () => {
           <Image
             src={suvrodebImage}
             alt="Suvrodeb Image"
-            width={1920}
-            height={700}
+            // width={1920}
+            // height={700}
             className=" flex items-center justify-center"
           />
 
@@ -32,28 +32,28 @@ const AboutMe = () => {
             alt="React Image"
             width={60}
             height={60}
-            className="w-[60x] h-[60px] rounded-md absolute top-0 md:top-[45px] left-[65px] md:left-[120px] abtAnim"
+            className=" rounded-md absolute top-0 md:top-[45px] left-[65px] md:left-[120px] abtAnim"
           />
           <Image
             src={tailwindImage}
             alt="Tailwind Image"
             width={60}
             height={60}
-            className="w-[60x] h-[60px] rounded-md absolute top-10 md:top-[65px] right-[10px] md:right-[60px] abtAnim"
+            className=" rounded-md absolute top-10 md:top-[65px] right-[10px] md:right-[60px] abtAnim"
           />
           <Image
             src={firebaseImage}
             alt="Firebase Image"
             width={60}
             height={60}
-            className="w-[60x] h-[60px] rounded-md absolute bottom-0 md:bottom-[45px] left-[65px] md:left-[120px] abtAnim"
+            className=" rounded-md absolute bottom-0 md:bottom-[45px] left-[65px] md:left-[120px] abtAnim"
           />
           <Image
             src={typescriptImage}
             alt="TS Image"
             width={60}
             height={60}
-            className="w-[60x] h-[60px] rounded-md absolute bottom-0 md:bottom-10 right-0 abtAnim"
+            className=" rounded-md absolute bottom-0 md:bottom-10 right-0 abtAnim"
           />
         </div>
         <div className="w-full md:w-1/2 h-full flex flex-col items-start justify-center ">

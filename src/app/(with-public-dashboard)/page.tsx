@@ -13,7 +13,7 @@ const HomePage = () => {
         <Banner />
       </div>
 
-      <div className=" px-5 md:px-36 py-10 " id="">
+      <div className=" px-5 md:px-28 py-10 " id="">
         <AboutMe />
       </div>
 
