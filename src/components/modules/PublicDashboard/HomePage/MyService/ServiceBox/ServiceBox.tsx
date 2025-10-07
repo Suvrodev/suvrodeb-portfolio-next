@@ -1,10 +1,12 @@
 "use client";
 import "./ServiceBox.css";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { TService } from "@/components/types/globalTypes";
 import CustomModal from "./CustomModal/CustomModal";
+import { AiFillHeart } from "react-icons/ai";
+
 interface IProps {
   service: TService;
 }
@@ -106,9 +108,11 @@ const ServiceBox = ({ service }: IProps) => {
           {/* ✅ Cute Button */}
           <button
             onClick={() => setOpen(true)}
-            className="absolute bottom-6 left-4 bg-gradient-to-r from-[#7C3AED] to-[#A855F7] text-white px-5 py-2 rounded-md shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
+            className="absolute bottom-6 left-4 flex items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#A855F7] text-white px-5 py-2 rounded-md shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
           >
-            🩶 Read More
+            {/* <AiOutlineHeart className="text-white text-lg" /> */}
+            <AiFillHeart className="text-white text-lg" />
+            <span>Read More</span>
           </button>
         </div>
       </article>

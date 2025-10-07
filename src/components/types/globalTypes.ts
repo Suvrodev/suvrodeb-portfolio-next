@@ -4,3 +4,8 @@ export type TService = {
   desc: string;
   image: string;
 };
+export type TSkill = {
+  id: number;
+  title: string;
+  svgImage: string;
+};
