@@ -12,7 +12,7 @@ import Image from "next/image";
 const AboutMe = () => {
   return (
     <div className="h-[1100px] w-full md:h-auto ">
-      <p> NICE TO MEET YOU!</p>
+      <p className="reduceOpacity"> NICE TO MEET YOU!</p>
       <h1 className="text-2xl font-bold pText uppercase my-10 md:my-4">
         everything about me!
       </h1>
@@ -59,13 +59,14 @@ const AboutMe = () => {
         <div className="w-full md:w-1/2 h-full flex flex-col items-start justify-center ">
           <div>
             <span className="subTitle">Welcome to my world</span>
-            <h1 className="aboutTitle">
-              Hi I&apos;m <span>Suvrodeb</span>{" "}
+            <h1 className="aboutTitle flex items-center gap-x-4">
+              <p className="reduceOpacity"> Hi I&apos;m</p>{" "}
+              <span>Suvrodeb</span>{" "}
             </h1>
             <div className="flex gap-4 ">
               <h1 className="aboutTitleDesc">I&apos;m a </h1>
               {
-                <span className="aboutTitleDesc">
+                <span className="aboutTitleDesc reduceOpacity">
                   {/* Style will be inherited from the parent element */}
                   <Typewriter
                     words={[
@@ -85,21 +86,25 @@ const AboutMe = () => {
             </div>
           </div>
           <h1 className="text-2xl font-bold pText uppercase my-4">-About Me</h1>
-          <p className="text-justify">
-            I am a highly skilled MERN stack developer specializing in{" "}
+          <p className="text-justify ">
+            <span className="reduceOpacity">
+              I am a highly skilled MERN stack developer specializing in
+            </span>
             <span className="text-[#ff014f] ">
               {" "}
               HTML5, CSS, Bootstrap, Tailwind CSS, JavaScript, TypeScript,
               React, Next js, Express js, MongoDB, Mongoose, Google Firebase{" "}
             </span>
-            and I also familiar with{" "}
-            <span className="text-[#3E58D7]">Vue.js, react native</span> . With
-            a commitment to excellence and a strong work ethic, I ensure
-            top-quality, responsive, and efficient web solutions tailored to
-            client needs. I approach every project with diligence, aiming to
-            deliver robust and scalable applications. Let&apos;s collaborate to
-            bring your vision to life with professional precision and
-            dedication.
+            <span className="reduceOpacity"> and I also familiar with</span>
+            <span className="text-[#3E58D7]">Vue.js, react native</span> .{" "}
+            <span className="reduceOpacity">
+              With a commitment to excellence and a strong work ethic, I ensure
+              top-quality, responsive, and efficient web solutions tailored to
+              client needs. I approach every project with diligence, aiming to
+              deliver robust and scalable applications. Let&apos;s collaborate
+              to bring your vision to life with professional precision and
+              dedication.
+            </span>
           </p>
           {/* <p className="mt-4">
             I have a lot of skills Html5, Css3, Sass, Bootstrap, Tailwind,
