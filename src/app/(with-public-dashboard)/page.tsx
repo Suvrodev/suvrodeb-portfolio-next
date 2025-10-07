@@ -1,5 +1,6 @@
 import AboutMe from "@/components/modules/PublicDashboard/HomePage/AboutMe/AboutMe";
 import Banner from "@/components/modules/PublicDashboard/HomePage/Banner/Banner";
+import Experience from "@/components/modules/PublicDashboard/HomePage/Experience/Experience";
 import React from "react";
 
 const HomePage = () => {
@@ -12,11 +13,11 @@ const HomePage = () => {
       <div className=" px-5 md:px-36 py-10 " id="">
         <AboutMe />
       </div>
-      {/* 
+
       <div className="px-5 md:px-36 py-10 sColor " id="experience">
         <Experience />
       </div>
-      <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="service">
+      {/* <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="service">
         <MyService />
       </div>
       <div className="px-5 md:px-36 py-10 sColor" id="skill">
