@@ -1,10 +1,12 @@
 import { TProject } from "@/components/types/globalTypes";
 import React from "react";
 import ProjectBox from "./ProjectBox/ProjectBox";
+import { baseUrl } from "@/components/utils/Variable/baseApi";
 
 const Project = async () => {
-  const res = await fetch(`${process.env.BASE_URL}/project/`, {
-    cache: "force-cache",
+  const res = await fetch(`${baseUrl}/project/`, {
+    // cache: "force-cache",
+    next: { revalidate: 604800 }, // 7 days
   });
   const data = await res.json();
   // console.log("Data: ", data);

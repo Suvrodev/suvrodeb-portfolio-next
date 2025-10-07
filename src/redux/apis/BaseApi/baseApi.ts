@@ -1,4 +1,4 @@
-import { sonarId } from "@/utils/sonarId";
+import errotToast from "@/components/utils/svg/Toast/errorToast";
 import {
   BaseQueryApi,
   BaseQueryFn,
@@ -7,7 +7,6 @@ import {
   FetchArgs,
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
-import { toast } from "sonner";
 
 const baseQuery = fetchBaseQuery({
   // baseUrl: process.env.BASE_URL,
@@ -26,21 +25,21 @@ const baseQueryWithRefreshToken: BaseQueryFn<
   console.log("Result in In Custom Base Query: ", result);
 
   if (result?.error?.status === 404 || result?.error?.status === 403) {
-    toast.error(result?.error?.data?.message, { id: sonarId });
+    errotToast(result?.error?.data?.message);
   }
 
   if (result?.error?.status === 500) {
-    toast.error(result?.error?.data?.message, { id: sonarId });
+    errotToast(result?.error?.data?.message);
   }
   if (result?.error?.status === 400) {
-    toast.error(result?.error?.data?.message, { id: sonarId });
+    errotToast(result?.error?.data?.message);
   }
 
   if (result.error?.status === 401) {
-    toast.error(result?.error?.data?.message, { id: sonarId });
+    errotToast(result?.error?.data?.message);
   }
   if (result.error?.status === 409) {
-    toast.error(result?.error?.data?.message, { id: sonarId });
+    errotToast(result?.error?.data?.message);
   }
   return result;
 };

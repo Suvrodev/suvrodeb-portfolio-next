@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Edu_VIC_WA_NT_Beginner } from "next/font/google";
 import "./globals.css";
+import Providers from "@/lib/Provider/Provider/Provider";
 
 // ✅ Roboto font configuration
 const roboto = Roboto({
@@ -26,13 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${roboto.variable} ${eduFont.variable} antialiased `}
-        suppressHydrationWarning
-      >
-        {children}
-      </body>
-    </html>
+    <Providers>
+      <html lang="en">
+        <body
+          className={`${roboto.variable} ${eduFont.variable} antialiased `}
+          suppressHydrationWarning
+        >
+          {children}
+        </body>
+      </html>
+    </Providers>
   );
 }
