@@ -1,9 +1,10 @@
 "use client";
 import "./ServiceBox.css";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { TService } from "@/components/types/globalTypes";
+import CustomModal from "./CustomModal/CustomModal";
 interface IProps {
   service: TService;
 }
@@ -11,14 +12,7 @@ interface IProps {
 const ServiceBox = ({ service }: IProps) => {
   // console.log(service);
   const { id, title, desc, image } = service;
-
-  const modalRef = useRef<HTMLDialogElement | null>(null);
-
-  const showModal = () => {
-    if (modalRef.current) {
-      modalRef.current.showModal();
-    }
-  };
+  const [open, setOpen] = useState(false);
 
   const identifier = id;
 
@@ -98,28 +92,38 @@ const ServiceBox = ({ service }: IProps) => {
     };
   }, [identifier]);
   return (
-    <div>
-      {/* Modal end */}
-      <div className={`glow-container-${identifier} glow-container`}>
-        <article
-          className={`glow-card glow-card-${identifier} h-fit cursor-pointer  border-[#2a2e5a] transition-all duration-300 relative bg-transparent  rounded-xl hover:border-transparent w-full`}
-        >
-          <div className="glows"></div>
-          {/* {children} */}
-          <div className="w-auto h-[250px] shadow-lg p-4 relative">
-            <div className="flex flex-col gap-6">
-              <h1 className="text-xl text-black font-bold">{title}</h1>
-              <p>{desc}</p>
-            </div>
-            <button
-              className="btn btn-primary  absolute bottom-10 "
-              onClick={showModal}
-            >
-              Read More
-            </button>
+    <div className={`glow-container-${identifier} glow-container`}>
+      <article
+        className={`glow-card glow-card-${identifier} h-fit cursor-pointer  border-[#2a2e5a] transition-all duration-300 relative bg-transparent  rounded-xl hover:border-transparent w-full`}
+      >
+        <div className="glows"></div>
+        {/* {children} */}
+        <div className="w-auto h-[250px] shadow-lg p-4 relative">
+          <div className="flex flex-col gap-6">
+            <h1 className="text-xl text-black font-bold">{title}</h1>
+            <p className="">{desc}</p>
           </div>
-        </article>
-      </div>
+          {/* ✅ Cute Button */}
+          <button
+            onClick={() => setOpen(true)}
+            className="absolute bottom-6 left-4 bg-gradient-to-r from-[#7C3AED] to-[#A855F7] text-white px-5 py-2 rounded-md shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-200"
+          >
+            🩶 Read More
+          </button>
+        </div>
+      </article>
+
+      {/* ✅ Custom Modal */}
+      <CustomModal isOpen={open} onClose={() => setOpen(false)} title={title}>
+        <Image
+          src={image}
+          alt="Service Image"
+          width={450}
+          height={400}
+          className="rounded-md mx-auto"
+        />
+        <p className="mt-6">{desc}</p>
+      </CustomModal>
     </div>
   );
 };
