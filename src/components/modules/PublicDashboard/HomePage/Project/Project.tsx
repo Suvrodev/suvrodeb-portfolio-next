@@ -1,7 +1,7 @@
-import { TProject } from "@/components/types/globalTypes";
 import React from "react";
 import ProjectBox from "./ProjectBox/ProjectBox";
 import { baseUrl } from "@/components/utils/Variable/baseApi";
+import { TProject } from "@/components/types/globalTypes";
 
 const Project = async () => {
   const res = await fetch(`${baseUrl}/project/`, {

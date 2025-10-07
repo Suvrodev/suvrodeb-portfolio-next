@@ -1,40 +1,30 @@
 "use client";
 import "./ProjectBox.css";
 
-// import chromeImage from "@/assets/chrome/chrome.png";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import BrowserUpdatedIcon from "@mui/icons-material/BrowserUpdated";
-// import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-// import { useDeleteProjectMutation } from "@/redux/apis/ProjectManagement/projectManagement";
-import { toast } from "sonner";
-// import { sonarId } from "@/utils/sonarId";
-// import { revalidateProjects } from "@/app/actions/revalidateProjects";
-import { useEffect, useState, useTransition } from "react";
-// import UpdateProject from "../UpdateProject/UpdateProject";
-// import dynamic from "next/dynamic";
+
+import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-// import UpdateProject from "../UpdateProject/UpdateProject";
 interface IProps {
   project: TProject;
   admin?: boolean;
 }
 
 import chromeImage from "@/app/assets/chrome/chrome.png";
-// const DynamicUpdateProject = dynamic(
-//   () => import("../UpdateProject/UpdateProject"),
-//   { ssr: false }
-// );
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { TProject } from "@/components/types/globalTypes";
 import Image from "next/image";
 import goLink from "@/components/utils/Functions/goLink";
+import { useDeleteProjectMutation } from "@/redux/apis/ProjectManagement/projectManagement";
+import { loadingToast, okToast } from "@/components/utils/svg/Toast/toast";
 
-const ProjectBox = ({ project, admin = false }: IProps) => {
-  // const [deleteProject] = useDeleteProjectMutation();
+const ProjectBox = ({ project, admin = true }: IProps) => {
+  const [deleteProject] = useDeleteProjectMutation();
   const { _id, liveurl, image, name, frontendrepo, backendrepo } = project;
-  const [, startTransition] = useTransition();
   const path = usePathname();
   const router = useRouter();
 
@@ -53,32 +43,24 @@ const ProjectBox = ({ project, admin = false }: IProps) => {
 
   if (!mounted) return null;
 
-  // const handleDelete = async (id: string) => {
-  //   console.log("Delete id: ", id);
-  //   try {
-  //     toast.loading("Deleting...", { id: sonarId });
-  //     const res = await deleteProject(id).unwrap();
-  //     console.log("Res: ", res);
-  //     if (res?.status) {
-  //       toast.success(res?.message, { id: sonarId });
+  const handleDelete = async (id: string) => {
+    console.log("Delete id: ", id);
 
-  //       // ✅ Properly revalidate projects after deletion
-  //       startTransition(async () => {
-  //         await revalidateProjects();
-  //       });
-  //     }
-  //   } catch {
-  //     toast.error("Failed to delete project", { id: sonarId });
-  //   }
-  // };
+    loadingToast("Deleting...");
+    const res = await deleteProject(id).unwrap();
+    console.log("Res: ", res);
+    if (res?.status) {
+      okToast(res?.message);
+    }
+  };
 
-  // const handleGoProjectDetail = (_id: string) => {
-  //   if (path != "/projects") {
-  //     console.log("in admin or Home");
-  //     return;
-  //   }
-  //   router.push(`/projects/${_id}`);
-  // };
+  const handleGoProjectDetail = (_id: string) => {
+    if (path != "/projects") {
+      console.log("in admin or Home");
+      return;
+    }
+    router.push(`/projects/${_id}`);
+  };
 
   return (
     <div
@@ -93,7 +75,7 @@ const ProjectBox = ({ project, admin = false }: IProps) => {
           </div>
           <button
             className="p-2 bg-red-500 rounded-full hover:bg-red-600 transition"
-            // onClick={() => handleDelete(_id)}
+            onClick={() => handleDelete(_id)}
           >
             <DeleteIcon className="text-white" />
           </button>
@@ -107,7 +89,7 @@ const ProjectBox = ({ project, admin = false }: IProps) => {
             width={250}
             height={150}
             className="absolute top-0 w-full transition-transform duration-[1500ms] ease-linear hover:-translate-y-[50%]"
-            // onClick={() => handleGoProjectDetail(_id)}
+            onClick={() => handleGoProjectDetail(_id)}
           />
         </div>
         <div className="w-full flex flex-col items-center justify-center">

@@ -1,5 +1,6 @@
 import AboutMe from "@/components/modules/PublicDashboard/HomePage/AboutMe/AboutMe";
 import Banner from "@/components/modules/PublicDashboard/HomePage/Banner/Banner";
+import Education from "@/components/modules/PublicDashboard/HomePage/Education/Education";
 import Experience from "@/components/modules/PublicDashboard/HomePage/Experience/Experience";
 import MyService from "@/components/modules/PublicDashboard/HomePage/MyService/MyService/MyService";
 import Project from "@/components/modules/PublicDashboard/HomePage/Project/Project";
@@ -34,18 +35,16 @@ const HomePage = () => {
       <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="project">
         <Project />
       </div>
-      {/* <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="project">
-        <Project />
-      </div>
+
       <div className="px-5 md:px-36 py-10 sColor" id="education">
         <Education />
       </div>
-      <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="testimonial">
+      {/* <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="testimonial">
         <Testimonial />
       </div>
       <div className="px-5 md:px-36 py-10 sColor" id="price">
         <Pricing />
-      </div> */}
+      </div>  */}
 
       {/* <div
         className="px-5 md:px-36 py-10 overflow-hidden aboutmeBgColor"
