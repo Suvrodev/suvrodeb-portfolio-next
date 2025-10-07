@@ -7,5 +7,5 @@ export type TService = {
 export type TSkill = {
   id: number;
   title: string;
-  svgImage: string;
+  svgImage: string | React.FC<React.SVGProps<SVGSVGElement>>;
 };
