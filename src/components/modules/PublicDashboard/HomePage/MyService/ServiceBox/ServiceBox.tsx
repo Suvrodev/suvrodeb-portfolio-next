@@ -99,43 +99,20 @@ const ServiceBox = ({ service }: IProps) => {
   }, [identifier]);
   return (
     <div>
-      {/* Modal start */}
-      <dialog id="my_modal_3" ref={modalRef} className="modal w-full ">
-        <div className="modal-box p-0 w-full  bg-[#5921B5]">
-          <form method="dialog">
-            <button className="btn btn-circle btn-ghost bg-[#764EC3] hover:bg-[#764EC3]  absolute right-2 top-2  text-white z-20">
-              ✕
-            </button>
-          </form>
-          <div className="p-2 w-full">
-            <Image
-              src={image}
-              alt="service Modal Image"
-              width={450}
-              height={400}
-              className="w-[450px] mx-auto rounded-md`"
-            />
-            <div className="p-12 text-center">
-              <p>{desc}</p>
-            </div>
-          </div>
-        </div>
-      </dialog>
-
       {/* Modal end */}
       <div className={`glow-container-${identifier} glow-container`}>
         <article
-          className={`glow-card glow-card-${identifier} h-fit cursor-pointer  border-[#2a2e5a] transition-all duration-300 relative bg-transparent text-gray-200 rounded-xl hover:border-transparent w-full`}
+          className={`glow-card glow-card-${identifier} h-fit cursor-pointer  border-[#2a2e5a] transition-all duration-300 relative bg-transparent  rounded-xl hover:border-transparent w-full`}
         >
           <div className="glows"></div>
           {/* {children} */}
           <div className="w-auto h-[250px] shadow-lg p-4 relative">
             <div className="flex flex-col gap-6">
               <h1 className="text-xl text-black font-bold">{title}</h1>
-              <p className="pText">{desc}</p>
+              <p>{desc}</p>
             </div>
             <button
-              className="btn btn-primary text-white absolute bottom-10 "
+              className="btn btn-primary  absolute bottom-10 "
               onClick={showModal}
             >
               Read More

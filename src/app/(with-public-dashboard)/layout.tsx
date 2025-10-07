@@ -17,12 +17,14 @@ const PublicDashboardLayout = ({ children }: IProps) => {
       <div className="w-[20%] hidden md:block h-[100vh] sticky top-0 ">
         <PublicDashboard />
       </div>
-      <div className="w-full md:w-[80%] bg-[#1c2854] ">
+      <div className="w-full md:w-[80%]  ">
         <div className="md:hidden sticky top-0 z-50">
           <MobileFooter />
         </div>
         <div>{children}</div>
-        <div className="sticky top-0 bg-yellow-500">{/* <Footer /> */}</div>
+        <div className="sticky top-0 bg-yellow-500">
+          <Footer />
+        </div>
       </div>
       <div>
         <SocialIconInBody />

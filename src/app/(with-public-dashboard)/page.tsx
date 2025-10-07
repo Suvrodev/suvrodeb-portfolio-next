@@ -18,7 +18,7 @@ const HomePage = () => {
       <div className="px-5 md:px-36 py-10 sColor " id="experience">
         <Experience />
       </div>
-      <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="service">
+      <div className="px-5 md:px-36 py-10 " id="service">
         <MyService />
       </div>
       {/*   <div className="px-5 md:px-36 py-10 sColor" id="skill">
