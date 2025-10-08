@@ -1,83 +1,49 @@
 "use client";
-import "./MobileFooterOption.css";
-
-import HomeIcon from "@mui/icons-material/Home";
-// import InfoIcon from "@mui/icons-material/Info";
-// import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
-// import TungstenIcon from "@mui/icons-material/Tungsten";
-// import EventNoteIcon from "@mui/icons-material/EventNote";
-// import RssFeedIcon from "@mui/icons-material/RssFeed";
-import EmailIcon from "@mui/icons-material/Email";
-import { BookOpen, Globe } from "lucide-react";
+import { publicDashboardContents } from "@/components/modules/utils/dashboard/publicDashboardContent";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const MobileFooterOption = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="bg-[#130f49] text-white py-5">
-      <div className="flex gap-2 justify-around">
-        {/* Will Update after get amrks */}
-        {/* <div className="flex flex-col justify-center items-center cursor-pointer">
-          <HomeIcon className="mhI" />
-          <p className="text-[10px]">Home</p>
-        </div>
+    <div className="bg-[#130f49] text-white py-5 fixed bottom-0 w-full z-50">
+      <div className="flex justify-around">
+        {publicDashboardContents.map(
+          ({ id, label, href, icon: Icon, iconSize, mobileIconSize }) => {
+            const isLucide = !("muiName" in Icon);
 
-        <div className="flex flex-col justify-center items-center cursor-pointer">
-          <InfoIcon className="mhI" />
-          <p className="text-[10px]">About me</p>
-        </div>
-
-        <div className="flex flex-col justify-center items-center cursor-pointer">
-          <ManageAccountsIcon className="mhI" />
-          <p className="text-[10px]">Service</p>
-        </div>
-
-        <div className="flex flex-col justify-center items-center cursor-pointer">
-          <TungstenIcon className="rotate-180 mhI" />
-          <p className="text-[10px]">Skill</p>
-        </div>
-
-        <div className="flex flex-col justify-center items-center cursor-pointer">
-          <EventNoteIcon className="mhI" />
-          <p className="text-[10px]">Testimonial</p>
-        </div>
-
-        <div className="flex flex-col justify-center items-center cursor-pointer">
-          <RssFeedIcon className="mhI" />
-          <p className="text-[10px]">Blog</p>
-        </div>
-
-        <div className="flex flex-col justify-center items-center cursor-pointer">
-          <EmailIcon className="mhI" />
-          <p className="text-[10px]">Contact</p>
-        </div> */}
-        <Link
-          href={"/"}
-          className="flex flex-col justify-center items-center cursor-pointer"
-        >
-          <HomeIcon className="mhI" />
-          <p className="text-[10px]">Home</p>
-        </Link>
-        <Link
-          href={"/projects"}
-          className="flex flex-col justify-center items-center cursor-pointer"
-        >
-          <Globe className="mhI" />
-          <p className="text-[10px]">Projects</p>
-        </Link>
-        <Link
-          href={"/blog"}
-          className="flex flex-col justify-center items-center cursor-pointer"
-        >
-          <BookOpen className="mhI" />
-          <p className="text-[10px]">Blog</p>
-        </Link>
-        <Link
-          href={"/contact"}
-          className="flex flex-col justify-center items-center cursor-pointer"
-        >
-          <EmailIcon className="mhI" />
-          <p className="text-[10px]">Contact</p>
-        </Link>
+            return (
+              <Link
+                key={id}
+                href={href}
+                className="flex flex-col justify-center items-center cursor-pointer"
+              >
+                {isLucide ? (
+                  <Icon
+                    size={isMobile ? mobileIconSize : iconSize}
+                    className="opacity-70 mhI"
+                  />
+                ) : (
+                  <Icon
+                    className="opacity-70 mhI"
+                    style={{
+                      fontSize: isMobile ? mobileIconSize : iconSize,
+                    }}
+                  />
+                )}
+                <p className="text-[10px] mt-1">{label}</p>
+              </Link>
+            );
+          }
+        )}
       </div>
     </div>
   );
