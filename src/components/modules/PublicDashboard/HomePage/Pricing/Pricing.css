@@ -1,0 +1,19 @@
+/* Add these styles manually */
+.perspective-1500 {
+  perspective: 1500px;
+}
+
+.clip-path-polygon {
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.group > div {
+  transform-style: preserve-3d;
+}
+
+.md\:group-hover\:\[\-webkit-transform\:rotateY\(-180deg\)\],
+.md\:group-hover\:\[transform\:rotateY\(-180deg\)\],
+.md\:group-hover\:\[\-webkit-transform\:rotateY\(0deg\)\],
+.md\:group-hover\:\[transform\:rotateY\(0deg\)\] {
+  transition: transform 0.7s ease-in-out;
+}

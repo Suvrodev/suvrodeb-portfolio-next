@@ -11,17 +11,134 @@ import {
   Info as InfoIcon,
   RssFeed as RssFeedIcon,
   Email as EmailIcon,
-  Build as BuildIcon, // 🛠️ for Skill
   Psychology as PsychologyIcon, // 🧠 optional alternative
 } from "@mui/icons-material";
+import WorkIcon from "@mui/icons-material/Work";
+
 import Image from "next/image";
 import Link from "next/link";
 import logoImage from "@/app/assets/HeaderImage/myLogo.png";
 import goLink from "@/components/utils/Functions/goLink";
 import sendEmail from "@/components/utils/Functions/sendEmail";
 import goCall from "@/components/utils/Functions/goCall";
+import { useRouter } from "next/navigation";
+import NavLinksSection from "./Sub/NavLinksSection/NavLinksSection";
+import SocialIconSection from "./Sub/SocialIconSection/SocialIconSection";
 
 const PublicDashboard = () => {
+  const router = useRouter();
+
+  // const handleScroll = (id: string) => {
+  //   // Same page e scroll korar jonno
+  //   const section = document.getElementById(id);
+  //   if (section) {
+  //     section.scrollIntoView({ behavior: "smooth" });
+  //   } else {
+  //     // Jodi onno page theke scroll korte hoy
+  //     router.push(`/#${id}`);
+  //     setTimeout(() => {
+  //       const section = document.getElementById(id);
+  //       if (section) section.scrollIntoView({ behavior: "smooth" });
+  //     }, 50);
+  //   }
+  // };
+
+  /**
+   * Sccroll-2
+   */
+
+  // const handleScroll = (id: string) => {
+  //   // remove # if accidentally passed
+  //   const cleanId = id.replace("#", "");
+  //   const section = document.getElementById(cleanId);
+
+  //   if (section) {
+  //     // ✅ Precise smooth scroll with offset correction
+  //     const yOffset = -80; // top header or sticky offset adjust
+  //     const y =
+  //       section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+  //     window.scrollTo({ top: y, behavior: "smooth" });
+  //   } else {
+  //     // ✅ if not found (different route), push then scroll after DOM loads
+  //     router.push(`/#${cleanId}`);
+  //     setTimeout(() => {
+  //       const target = document.getElementById(cleanId);
+  //       if (target) {
+  //         const yOffset = -80;
+  //         const y =
+  //           target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  //         window.scrollTo({ top: y, behavior: "smooth" });
+  //       }
+  //     }, 5);
+  //   }
+  // };
+
+  /**
+   * Scroll:3
+   */
+
+  // const handleScroll = (id: string) => {
+  //   const cleanId = id.replace("#", "");
+  //   const section = document.getElementById(cleanId);
+
+  //   if (section) {
+  //     // Same page scroll
+  //     const yOffset = -80;
+  //     const y =
+  //       section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  //     window.scrollTo({ top: y, behavior: "smooth" });
+  //   } else {
+  //     // Different route e gele push kore, page load howar pore scroll
+  //     router.push(`/#${cleanId}`);
+
+  //     const scrollAfterLoad = () => {
+  //       const target = document.getElementById(cleanId);
+  //       if (target) {
+  //         const yOffset = -80;
+  //         const y =
+  //           target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  //         window.scrollTo({ top: y, behavior: "smooth" });
+  //         window.removeEventListener("load", scrollAfterLoad);
+  //       }
+  //     };
+
+  //     // Add listener to wait until new route fully loaded
+  //     window.addEventListener("load", scrollAfterLoad);
+  //   }
+  // };
+
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+
+    if (section) {
+      const yOffset = -80;
+      const y =
+        section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" }); // instant smooth scroll
+    } else {
+      router.push(`/#${id}`);
+
+      // wait until the section is actually available in DOM
+      const tryScroll = () => {
+        const sectionAfter = document.getElementById(id);
+        if (sectionAfter) {
+          const yOffset = -80;
+          const y =
+            sectionAfter.getBoundingClientRect().top +
+            window.pageYOffset +
+            yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+        } else {
+          // check again in the next animation frame (very fast loop)
+          requestAnimationFrame(tryScroll);
+        }
+      };
+
+      requestAnimationFrame(tryScroll);
+    }
+  };
+
   return (
     <div className="sticky top-0">
       <div className="bg-[#F3F9FF] h-[100vh] w-full flex flex-col items-center text-black overflow-hidden relative">
@@ -43,101 +160,12 @@ const PublicDashboard = () => {
         </div>
 
         {/* Link start */}
-        <div className="flex flex-col gap-1 z-10">
-          {/* Link Items */}
-          <div className="flex gap-2 items-center">
-            <HomeIcon className="opacity-50" />
-            <Link href="banner" className="cursor-pointer u-line-effect">
-              Home
-            </Link>
-          </div>
-
-          <div className="flex gap-2 items-center">
-            <InfoIcon className="opacity-50" />
-            <Link href="about" className="cursor-pointer u-line-effect">
-              About me
-            </Link>
-          </div>
-
-          <div className="flex gap-2 items-center">
-            <PsychologyIcon className="opacity-50" />
-            <Link href="skill" className="cursor-pointer u-line-effect">
-              Skill
-            </Link>
-          </div>
-
-          <div className="flex gap-2 items-center">
-            <ManageAccountsIcon className="opacity-50" />
-            <Link href="service" className="cursor-pointer u-line-effect">
-              Service
-            </Link>
-          </div>
-
-          <div className="flex gap-2 items-center">
-            <RssFeedIcon className="opacity-50" />
-            <Link href="blog" className="cursor-pointer u-line-effect">
-              Blog
-            </Link>
-          </div>
-          <div className="flex gap-2 items-center">
-            <EmailIcon className="opacity-50" />
-            <Link href="contact" className="cursor-pointer u-line-effect">
-              Contact
-            </Link>
-          </div>
-
-          {/* Other Links */}
-          {/* ... */}
-        </div>
+        <NavLinksSection handleScroll={handleScroll} />
         {/* Link End */}
 
-        {/* <button
-          className="btn btn-primary z-50"
-          onClick={() => handleCheck("1st")}
-        >
-          Press
-        </button> */}
-
         {/* Icon Start */}
-        <div className="flex gap-4 items-center mt-8 z-40">
-          <div onClick={() => goLink("https://www.facebook.com/suvrodev.1122")}>
-            <FaFacebookF />
-          </div>
-
-          <Link href="" onClick={() => goLink("https://x.com/suvrodev1408")}>
-            <FaTwitter />
-          </Link>
-
-          <Link
-            href=""
-            onClick={() =>
-              goLink("https://www.linkedin.com/in/suvrodeb-howlader/")
-            }
-          >
-            <LinkedInIcon />
-          </Link>
-          <Link href="" onClick={() => goLink("https://github.com/Suvrodev")}>
-            <GitHubIcon />
-          </Link>
-
-          <Link href="" onClick={() => goLink("https://Wa.me/+8801518748081")}>
-            <FaWhatsapp />
-          </Link>
-        </div>
+        <SocialIconSection />
         {/* Icon End */}
-
-        {/* Mail Number Start */}
-        <div className="pt-10 text-black text-[15px] z-10 text-center">
-          <p>
-            <span className="font-bold">Email: </span>
-            <span onClick={() => sendEmail()}> suvrodeb.cse@gmail.com</span>
-          </p>
-          <p>
-            <span className="font-bold">Phone: </span>
-            <span onClick={() => goCall()}> +880 1951912997</span>
-          </p>
-        </div>
-        {/* Mail Number End */}
 
         {/* Footer */}
         <div className="absolute h-[100px] w-full bottom-0 flex justify-center z-0">

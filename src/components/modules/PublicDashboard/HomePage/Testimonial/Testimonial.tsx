@@ -2,7 +2,7 @@
 import "./Testimonial.css";
 import React, { useEffect, useRef, useState } from "react";
 import TestimonialCard from "./TestimonialCard/TestimonialCard";
-import { TTestimonial } from "@/utils/types/globalTypes";
+import { TTestimonial } from "@/components/types/globalTypes";
 
 const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([]);

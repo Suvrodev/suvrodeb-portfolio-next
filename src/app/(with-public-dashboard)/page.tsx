@@ -3,19 +3,21 @@ import Banner from "@/components/modules/PublicDashboard/HomePage/Banner/Banner"
 import Education from "@/components/modules/PublicDashboard/HomePage/Education/Education";
 import Experience from "@/components/modules/PublicDashboard/HomePage/Experience/Experience";
 import MyService from "@/components/modules/PublicDashboard/HomePage/MyService/MyService/MyService";
+import Pricing from "@/components/modules/PublicDashboard/HomePage/Pricing/Pricing";
 import Project from "@/components/modules/PublicDashboard/HomePage/Project/Project";
 import Skill from "@/components/modules/PublicDashboard/HomePage/Skill/Skill";
 import SkillLoading from "@/components/modules/PublicDashboard/HomePage/Skill/SkillLoading/SkillLoading";
+import Testimonial from "@/components/modules/PublicDashboard/HomePage/Testimonial/Testimonial";
 import React from "react";
 
 const HomePage = () => {
   return (
-    <div className="w-full overflow-auto" id="banner">
+    <div className="w-full overflow-auto" id="home">
       <div>
         <Banner />
       </div>
 
-      <div className=" px-5 md:px-28 py-10 " id="">
+      <div className=" px-5 md:px-28 py-10 " id="about">
         <AboutMe />
       </div>
 
@@ -39,12 +41,12 @@ const HomePage = () => {
       <div className="px-5 md:px-36 py-10 sColor" id="education">
         <Education />
       </div>
-      {/* <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="testimonial">
+      <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="testimonial">
         <Testimonial />
       </div>
       <div className="px-5 md:px-36 py-10 sColor" id="price">
         <Pricing />
-      </div>  */}
+      </div>
 
       {/* <div
         className="px-5 md:px-36 py-10 overflow-hidden aboutmeBgColor"

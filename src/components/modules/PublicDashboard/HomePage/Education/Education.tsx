@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Lottie from "lottie-react";
-// import studyLottie from "@/assets/lottie/Study-2.json";
 import studyLottie from "@/app/assets/lottie/Study-2.json";
 import TimeLine from "./TimeLine/TimeLine";
 import { TEducation } from "@/components/types/globalTypes";

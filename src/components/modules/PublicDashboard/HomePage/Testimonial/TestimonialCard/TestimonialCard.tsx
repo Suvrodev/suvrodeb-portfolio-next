@@ -1,6 +1,5 @@
-import { TTestimonial } from "@/utils/types/globalTypes";
-import { Rating } from "@smastrom/react-rating";
-import "@smastrom/react-rating/style.css";
+import CustomRating from "@/components/modules/Shared/CustomRating/CustomRating";
+import { TTestimonial } from "@/components/types/globalTypes";
 import Image from "next/image";
 
 interface IProps {
@@ -33,7 +32,7 @@ const TestimonialCard = ({ testimonial }: IProps) => {
         <div className="text-center text-[18px] pText">{desc}</div>
         <div className="flex justify-center md:justify-between">
           <div>
-            <Rating style={{ maxWidth: 120 }} value={rating} />
+            <CustomRating value={rating} />
           </div>
           <div></div>
         </div>
