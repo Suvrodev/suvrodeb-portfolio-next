@@ -1,4 +1,4 @@
-import { Tuser } from "@/utils/types/globalTypes";
+import { Tuser } from "@/components/types/globalTypes";
 import { createSlice } from "@reduxjs/toolkit";
 
 // Define a type for the slice state
