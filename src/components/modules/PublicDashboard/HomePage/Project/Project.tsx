@@ -4,14 +4,15 @@ import { baseUrl } from "@/components/utils/Variable/baseApi";
 import { TProject } from "@/components/types/globalTypes";
 
 const Project = async () => {
-  const res = await fetch(`${baseUrl}/project/`, {
+  const res = await fetch(`${baseUrl}/projects/`, {
     // cache: "force-cache",
     next: { revalidate: 604800 }, // 7 days
   });
   const data = await res.json();
   // console.log("Data: ", data);
   const projects = data?.data;
-  // console.log("Projects: ", projects);
+  console.log("Data: ", data);
+  console.log("Projects: ", projects);
   return (
     <div>
       <h1 className="text-2xl font-bold pText mb-10">Projects</h1>

@@ -5,6 +5,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import { useRegistrationMutation } from "@/redux/features/AuthManagement/authApi";
+import { loadingToast } from "@/components/utils/svg/Toast/toast";
 
 interface IProps {
   setIsSignUpActive: (value: boolean) => void;
@@ -12,13 +14,13 @@ interface IProps {
 
 interface IFormInput {
   name: string;
-  phone: string;
   email: string;
   password: string;
   confirmPassword: string;
 }
 
 const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
+  const [registration, { isLoading }] = useRegistrationMutation();
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
@@ -38,15 +40,15 @@ const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
       return;
     }
 
-    toast.loading("Creating admin account...");
-    try {
-      await new Promise((r) => setTimeout(r, 1000)); // simulate API
-      toast.success("Registration successful!");
-      setIsSignUpActive(false);
-      reset();
-    } catch {
-      toast.error("Registration failed");
-    }
+    const userData = {
+      name: data?.name,
+      email: data?.email,
+      password: data?.password,
+    };
+
+    loadingToast("Registrationing......");
+    const res = await registration(userData).unwrap();
+    console.log("Res: ", res);
   };
 
   return (
@@ -69,22 +71,6 @@ const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
           />
           {errors.name && (
             <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
-          )}
-        </div>
-
-        {/* Phone */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Phone Number
-          </label>
-          <input
-            type="tel"
-            placeholder="Enter phone number"
-            {...register("phone", { required: "Phone number is required" })}
-            className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
-          {errors.phone && (
-            <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>
           )}
         </div>
 

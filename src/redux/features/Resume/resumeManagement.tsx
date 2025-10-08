@@ -1,4 +1,4 @@
-import { baseApi } from "../BaseApi/baseApi";
+import { baseApi } from "../../apis/BaseApi/baseApi";
 
 const resumeManagement = baseApi.injectEndpoints({
   endpoints: (builder) => ({

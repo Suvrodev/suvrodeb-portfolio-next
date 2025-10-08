@@ -19,7 +19,7 @@ import "aos/dist/aos.css";
 import { TProject } from "@/components/types/globalTypes";
 import Image from "next/image";
 import goLink from "@/components/utils/Functions/goLink";
-import { useDeleteProjectMutation } from "@/redux/apis/ProjectManagement/projectManagement";
+import { useDeleteProjectMutation } from "@/redux/features/ProjectManagement/projectManagement";
 import { loadingToast, okToast } from "@/components/utils/svg/Toast/toast";
 
 const ProjectBox = ({ project, admin = true }: IProps) => {

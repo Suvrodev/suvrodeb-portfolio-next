@@ -1,31 +1,31 @@
-import { baseApi } from "../BaseApi/baseApi";
+import { baseApi } from "../../apis/BaseApi/baseApi";
 
-const blogManagement = baseApi.injectEndpoints({
+const projectManagement = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    addblog: builder.mutation({
+    addProject: builder.mutation({
       query: (data) => {
         console.log("Blog data In redux: ", data);
         return {
-          url: "/blog",
+          url: "/project",
           method: "POST",
           body: data,
         };
       },
     }),
-    deleteBlog: builder.mutation({
+    deleteProject: builder.mutation({
       query: (id) => {
         console.log("Blog id In redux: ", id);
         return {
-          url: `/blog/${id}`,
+          url: `/project/${id}`,
           method: "DELETE",
         };
       },
     }),
-    updateBlog: builder.mutation({
+    updateProject: builder.mutation({
       query: ({ id, updateData }) => {
         console.log("Blog id In redux: ", id);
         return {
-          url: `/blog/update/${id}`,
+          url: `/project/update/${id}`,
           method: "PATCH",
           body: updateData,
         };
@@ -35,7 +35,7 @@ const blogManagement = baseApi.injectEndpoints({
 });
 
 export const {
-  useAddblogMutation,
-  useDeleteBlogMutation,
-  useUpdateBlogMutation,
-} = blogManagement;
+  useAddProjectMutation,
+  useDeleteProjectMutation,
+  useUpdateProjectMutation,
+} = projectManagement;
