@@ -33,7 +33,7 @@ const MobileHeader = () => {
       </div>
 
       {isOpen && (
-        <div className="fixed z-20 bottom-0 left-0 w-full transition-all duration-700">
+        <div className="fixed -bottom-0 left-0  w-full transition-all duration-700 z-20 ">
           <MobileFooterOption />
         </div>
       )}

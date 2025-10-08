@@ -14,7 +14,7 @@ const MobileFooterOption = () => {
   }, []);
 
   return (
-    <div className="bg-[#130f49] text-white py-5 fixed bottom-0 w-full z-50">
+    <div className="bg-[#130f49] text-white py-5 w-full z-50  pb-[env(safe-area-inset-bottom)]">
       <div className="flex justify-around">
         {publicDashboardContents.map(
           ({ id, label, href, icon: Icon, iconSize, mobileIconSize }) => {
@@ -24,22 +24,24 @@ const MobileFooterOption = () => {
               <Link
                 key={id}
                 href={href}
-                className="flex flex-col justify-center items-center cursor-pointer"
+                className="flex flex-col justify-center items-center h-[60px] cursor-pointer  u-line-effect "
               >
-                {isLucide ? (
-                  <Icon
-                    size={isMobile ? mobileIconSize : iconSize}
-                    className="opacity-70 mhI"
-                  />
-                ) : (
-                  <Icon
-                    className="opacity-70 mhI"
-                    style={{
-                      fontSize: isMobile ? mobileIconSize : iconSize,
-                    }}
-                  />
-                )}
-                <p className="text-[10px] mt-1">{label}</p>
+                <div className=" min-h-[30px] ">
+                  {isLucide ? (
+                    <Icon
+                      size={isMobile ? mobileIconSize : iconSize}
+                      className="opacity-70 mhI"
+                    />
+                  ) : (
+                    <Icon
+                      className="opacity-70 mhI"
+                      style={{
+                        fontSize: isMobile ? mobileIconSize : iconSize,
+                      }}
+                    />
+                  )}
+                </div>
+                <p className="text-[10px] mt-1 ">{label}</p>
               </Link>
             );
           }

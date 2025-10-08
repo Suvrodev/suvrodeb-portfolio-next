@@ -19,55 +19,6 @@ const NavLinksSection = ({ handleScroll }: Props) => {
   }, []);
 
   return (
-    // <div className="flex flex-col gap-1 z-10">
-    //   {publicDashboardContents.map(({ id, label, href, icon: Icon }) => (
-    //     <div key={id} className="flex gap-2 items-center">
-    //       <Icon className="opacity-50" />
-    //       <Link
-    //         href={href}
-    //         className="cursor-pointer u-line-effect"
-    //         onClick={() => handleScroll(id)}
-    //       >
-    //         {label}
-    //       </Link>
-    //     </div>
-    //   ))}
-    // </div>
-
-    // <div className="flex flex-col gap-1 z-10">
-    //   {publicDashboardContents.map(
-    //     ({ id, label, href, icon: Icon, iconSize, mobileIconSize }) => {
-    //       const isLucide = Icon?.name?.startsWith("Lucide");
-
-    //       return (
-    //         <div key={id} className="flex gap-2 items-center">
-    //           {isLucide ? (
-    //             <Icon
-    //               size={isMobile ? mobileIconSize : iconSize}
-    //               className="opacity-50"
-    //             />
-    //           ) : (
-    //             <Icon
-    //               className="opacity-50"
-    //               style={{
-    //                 fontSize: isMobile ? mobileIconSize : iconSize,
-    //               }}
-    //             />
-    //           )}
-
-    //           <Link
-    //             href={href}
-    //             className="cursor-pointer u-line-effect"
-    //             onClick={() => handleScroll(id)}
-    //           >
-    //             {label}
-    //           </Link>
-    //         </div>
-    //       );
-    //     }
-    //   )}
-    // </div>
-
     <div className="flex flex-col gap-1 z-10">
       {publicDashboardContents.map(
         ({ id, label, href, icon: Icon, iconSize, mobileIconSize }) => {

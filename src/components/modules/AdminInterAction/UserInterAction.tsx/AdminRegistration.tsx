@@ -5,7 +5,6 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import Link from "next/link";
 
 interface IProps {
   setIsSignUpActive: (value: boolean) => void;
