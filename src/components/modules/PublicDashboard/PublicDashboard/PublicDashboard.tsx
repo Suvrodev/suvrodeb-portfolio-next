@@ -1,26 +1,10 @@
 "use client";
 import "./PublicDashboard.css";
-import { FaFacebookF, FaTwitter, FaWhatsapp } from "react-icons/fa";
-
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
-
-import {
-  Home as HomeIcon,
-  Info as InfoIcon,
-  RssFeed as RssFeedIcon,
-  Email as EmailIcon,
-  Psychology as PsychologyIcon, // 🧠 optional alternative
-} from "@mui/icons-material";
-import WorkIcon from "@mui/icons-material/Work";
 
 import Image from "next/image";
 import Link from "next/link";
 import logoImage from "@/app/assets/HeaderImage/myLogo.png";
-import goLink from "@/components/utils/Functions/goLink";
-import sendEmail from "@/components/utils/Functions/sendEmail";
-import goCall from "@/components/utils/Functions/goCall";
+
 import { useRouter } from "next/navigation";
 import NavLinksSection from "./Sub/NavLinksSection/NavLinksSection";
 import SocialIconSection from "./Sub/SocialIconSection/SocialIconSection";
