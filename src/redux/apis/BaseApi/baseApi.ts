@@ -1,5 +1,7 @@
 import config from "@/components/utils/configFile/config";
 import errotToast from "@/components/utils/svg/Toast/errorToast";
+import { okToast } from "@/components/utils/svg/Toast/toast";
+import { baseApiVar } from "@/components/utils/Variable/baseApiVar";
 import {
   BaseQueryApi,
   BaseQueryFn,
@@ -12,7 +14,8 @@ import {
 const baseQuery = fetchBaseQuery({
   // baseUrl: process.env.BASE_URL,
   // baseUrl: "http://localhost:5000/api",
-  baseUrl: config.baseApi,
+  // baseUrl: config.baseApi,
+  baseUrl: baseApiVar,
 });
 
 const baseQueryWithRefreshToken: BaseQueryFn<
@@ -40,7 +43,8 @@ const baseQueryWithRefreshToken: BaseQueryFn<
     errotToast(result?.error?.data?.message);
   }
   if (result.error?.status === 409) {
-    errotToast(result?.error?.data?.message);
+    // errotToast(result?.error?.data?.message);
+    okToast(result?.error?.data?.message);
   }
   return result;
 };

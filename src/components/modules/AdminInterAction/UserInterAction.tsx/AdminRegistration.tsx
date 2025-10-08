@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useRegistrationMutation } from "@/redux/features/AuthManagement/authApi";
-import { loadingToast } from "@/components/utils/svg/Toast/toast";
+import { loadingToast, okToast } from "@/components/utils/svg/Toast/toast";
 
 interface IProps {
   setIsSignUpActive: (value: boolean) => void;
@@ -49,6 +49,11 @@ const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
     loadingToast("Registrationing......");
     const res = await registration(userData).unwrap();
     console.log("Res: ", res);
+    if (res?.success) {
+      okToast("Registration done");
+      reset(); // clear the form
+      setTimeout(() => setIsSignUpActive(false), 5000); // go back to login page
+    }
   };
 
   return (
@@ -149,9 +154,14 @@ const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
         {/* Submit */}
         <button
           type="submit"
-          className={`w-full py-3 rounded-lg font-medium bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 flex items-center justify-center gap-2 group `}
+          disabled={isLoading}
+          className={`w-full py-3 rounded-lg font-medium text-white transition-all duration-300 shadow-md hover:shadow-lg transform flex items-center justify-center gap-2 group ${
+            isLoading
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700 hover:-translate-y-1"
+          }`}
         >
-          <span>{isSubmitting ? "Registering..." : "Register"}</span>
+          <span>{isLoading ? "Registering..." : "Register"}</span>
         </button>
       </form>
 
