@@ -1,12 +1,12 @@
 "use client";
-
+import "./MobileFooter.css";
 import Image from "next/image";
 import { useState } from "react";
 
 import logoImage from "@/app/assets/HeaderImage/myLogo.png";
 import MobileFooterOption from "./MobileFooterOption/MobileFooterOption";
 
-const MobileFooter = () => {
+const MobileHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = () => {
@@ -41,4 +41,4 @@ const MobileFooter = () => {
   );
 };
 
-export default MobileFooter;
+export default MobileHeader;

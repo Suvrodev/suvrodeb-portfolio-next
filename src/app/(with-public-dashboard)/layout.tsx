@@ -1,7 +1,7 @@
 "use client";
 
 import PublicDashboard from "@/components/modules/PublicDashboard/PublicDashboard/PublicDashboard";
-import MobileFooter from "@/components/modules/PublicDashboard/Shared/MobileFooter/MobileFooter";
+import MobileHeader from "@/components/modules/PublicDashboard/Shared/MobileFooter/MobileHeader";
 import Footer from "@/components/modules/Shared/Footer/Footer";
 import GotoTop from "@/components/modules/Shared/GotoTop/GotoTop";
 import SocialIconInBody from "@/components/modules/Shared/SocialIconInBody/SocialIconInBody";
@@ -19,7 +19,7 @@ const PublicDashboardLayout = ({ children }: IProps) => {
       </div>
       <div className="w-full md:w-[80%]  ">
         <div className="md:hidden sticky top-0 z-50">
-          <MobileFooter />
+          <MobileHeader />
         </div>
         <div>{children}</div>
         <div className="sticky top-0 bg-yellow-500">
