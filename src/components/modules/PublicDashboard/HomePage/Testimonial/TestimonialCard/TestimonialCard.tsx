@@ -11,7 +11,7 @@ const TestimonialCard = ({ testimonial }: IProps) => {
   return (
     <div className="flex flex-col md:flex-row w-full md:w-[80%] mx-auto">
       {/* Left Div */}
-      <div className="w-full md:w-[20%] flex justify-center md:justify-between">
+      <div className="w-full md:w-[22%] flex justify-center md:justify-between">
         <div className="flex items-center justify-center ">
           <Image
             src={image}
@@ -22,13 +22,13 @@ const TestimonialCard = ({ testimonial }: IProps) => {
           />
         </div>
         <div className="h-full relative hidden md:flex items-center ">
-          <div className="absolute w-[25px] h-[2px] pColor top-[50%] right-0"></div>
-          <div className="w-[1px] h-[150px] pColor"></div>
+          <div className="absolute w-[45px] h-[2px] pColor top-[50%] right-0"></div>
+          <div className="w-[1px] h-[140px] pColor"></div>
         </div>
       </div>
 
       {/* Right Div */}
-      <div className="w-full md:w-[80%]  flex flex-col gap-5 px-5 mt-10 md:mt-0">
+      <div className="w-full md:w-[78%]  flex flex-col gap-5 px-5 mt-10 md:mt-0">
         <div className="text-center text-[18px] pText">{desc}</div>
         <div className="flex justify-center md:justify-between">
           <div>
