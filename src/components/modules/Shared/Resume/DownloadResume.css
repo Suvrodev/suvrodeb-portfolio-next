@@ -1,0 +1,95 @@
+/* Download Resume Component Styles */
+.download-resume-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.download-resume-card:hover {
+  transform: translateY(-5px);
+}
+
+.download-shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+}
+
+.download-image {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  opacity: 0.8;
+}
+
+.download-image svg {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.download-info {
+  position: relative;
+  z-index: 2;
+}
+
+.download-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.download-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.download-info-text {
+  display: block;
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Tertiary color variant */
+.download-resume-card.tertiary .download-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--tertiary-color-1, #6ee7b7) 0%,
+    var(--tertiary-color-2, #3b82f6) 100%
+  );
+}
+
+.download-resume-card.tertiary .download-button {
+  background: linear-gradient(
+    135deg,
+    var(--tertiary-color-1, #6ee7b7) 0%,
+    var(--tertiary-color-2, #3b82f6) 100%
+  );
+}

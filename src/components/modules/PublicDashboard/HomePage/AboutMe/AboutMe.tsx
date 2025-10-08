@@ -84,6 +84,12 @@ const AboutMe = () => {
                 </span>
               }
             </div>
+
+            <div>
+              <button className="inline-block mt-5 bg-[#ff014f] text-white px-6 py-3 rounded-full hover:bg-[#d9003f] transition-all duration-300">
+                Resume
+              </button>
+            </div>
           </div>
           <h1 className="text-2xl font-bold pText uppercase my-4">-About Me</h1>
           <p className="text-justify ">

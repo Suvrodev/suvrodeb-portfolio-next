@@ -4,6 +4,7 @@ import PublicDashboard from "@/components/modules/PublicDashboard/PublicDashboar
 import MobileHeader from "@/components/modules/PublicDashboard/Shared/MobileFooter/MobileHeader";
 import Footer from "@/components/modules/Shared/Footer/Footer";
 import GotoTop from "@/components/modules/Shared/GotoTop/GotoTop";
+import DownloadResume from "@/components/modules/Shared/Resume/DownloadResume";
 import SocialIconInBody from "@/components/modules/Shared/SocialIconInBody/SocialIconInBody";
 
 interface IProps {
@@ -29,6 +30,8 @@ const PublicDashboardLayout = ({ children }: IProps) => {
       <div>
         <SocialIconInBody />
         <GotoTop />
+
+        <DownloadResume />
       </div>
     </div>
   );
