@@ -4,10 +4,11 @@ import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
 import AdminRegistration from "./AdminRegistration";
+import { useLoginMutation } from "@/redux/features/AuthManagement/authApi";
+import { loadingToast, okToast } from "@/components/utils/svg/Toast/toast";
+import { cookiesAndStateAction } from "@/components/actions/authActions/CookiesAndStateAction/CookiesAndStateAction";
+import { useAppDispatch } from "@/redux/hooks";
 
 interface IFormInput {
   email: string;
@@ -15,27 +16,35 @@ interface IFormInput {
 }
 
 const AdminLogin = () => {
+  const [doLogin, { isLoading }] = useLoginMutation();
   const [isSignUpActive, setIsSignUpActive] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const router = useRouter();
+
+  const dispatch = useAppDispatch();
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    toast.loading("Logging in...");
-    try {
-      console.log("Form Data:", data);
-      await new Promise((r) => setTimeout(r, 1000)); // simulate loading
-      toast.success("Login successful!");
-      router.push("/admin-dashboard");
+    const loginData = {
+      email: data?.email,
+      password: data?.password,
+    };
+    console.log("Login Data: ", loginData);
+    loadingToast("Logining......");
+
+    const res = await doLogin(loginData).unwrap();
+    console.log("Res: ", res);
+    if (res?.success) {
+      okToast("Login Successfully");
+      const accessToken = res?.data?.accessToken;
+
+      await cookiesAndStateAction(accessToken, dispatch);
       reset();
-    } catch {
-      toast.error("Invalid email or password");
     }
   };
 
@@ -161,29 +170,29 @@ const AdminLogin = () => {
                 {/* Login Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full py-3 rounded-lg font-medium text-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 flex items-center justify-center gap-2 group ${
-                    isSubmitting
+                  disabled={isLoading}
+                  className={`w-full py-3 rounded-lg font-medium text-white transition-all duration-300 shadow-md hover:shadow-lg transform flex items-center justify-center gap-2 group ${
+                    isLoading
                       ? "bg-gray-400 cursor-not-allowed"
-                      : "bg-blue-600 hover:bg-blue-700"
+                      : "bg-blue-600 hover:bg-blue-700 hover:-translate-y-1"
                   }`}
                 >
-                  <span>{isSubmitting ? "Logging in..." : "Sign In"}</span>
-                  {!isSubmitting && (
+                  <span>{isLoading ? "Logging in..." : "Sign In"}</span>
+                  {!isLoading && (
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       →
                     </span>
                   )}
                 </button>
 
-                <div className="text-right">
+                {/* <div className="text-right">
                   <Link
                     href="/admin-forget-password"
                     className="text-blue-600 hover:text-blue-700 text-sm"
                   >
                     Forgot password?
                   </Link>
-                </div>
+                </div> */}
               </form>
             </div>
           )}

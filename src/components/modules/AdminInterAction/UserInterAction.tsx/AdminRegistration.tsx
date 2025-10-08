@@ -52,7 +52,7 @@ const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
     if (res?.success) {
       okToast("Registration done");
       reset(); // clear the form
-      setTimeout(() => setIsSignUpActive(false), 5000); // go back to login page
+      setTimeout(() => setIsSignUpActive(false), 2000); // go back to login page
     }
     if (isError) {
       toast.error("Registration failed. Please try again.");

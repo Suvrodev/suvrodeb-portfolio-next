@@ -48,7 +48,7 @@ export type TProject = {
 };
 
 export type Tuser = {
-  name: string | null;
-  email: string | null;
-  image: string | null;
+  name: string;
+  email: string;
+  rol: string;
 };
