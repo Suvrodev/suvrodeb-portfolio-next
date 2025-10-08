@@ -20,7 +20,7 @@ interface IFormInput {
 }
 
 const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
-  const [registration, { isLoading }] = useRegistrationMutation();
+  const [registration, { isLoading, isError }] = useRegistrationMutation();
   const [showPassword, setShowPassword] = useState(false);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
@@ -29,7 +29,7 @@ const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
     handleSubmit,
     reset,
     watch,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<IFormInput>();
 
   const password = watch("password");
@@ -53,6 +53,9 @@ const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
       okToast("Registration done");
       reset(); // clear the form
       setTimeout(() => setIsSignUpActive(false), 5000); // go back to login page
+    }
+    if (isError) {
+      toast.error("Registration failed. Please try again.");
     }
   };
 
