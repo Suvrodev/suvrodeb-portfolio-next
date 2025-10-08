@@ -97,7 +97,7 @@ const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Password
         </label>
-        <div className="relative">
+        <div className="relative flex items-center">
           <input
             type={showPassword ? "text" : "password"}
             placeholder="Create password"
@@ -113,18 +113,16 @@ const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
           >
             {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
           </div>
-          {errors.password && (
-            <p className="text-red-500 text-xs mt-1">
-              {errors.password.message}
-            </p>
-          )}
         </div>
+        {errors.password && (
+          <p className="text-red-500 text-xs mt-0">{errors.password.message}</p>
+        )}
 
         {/* Confirm Password */}
         <label className="block text-sm font-medium text-gray-700 mb-2">
           Confirm Password
         </label>
-        <div className="relative">
+        <div className="relative flex items-center">
           <input
             type={showPasswordConfirm ? "text" : "password"}
             placeholder="Confirm password"
@@ -141,12 +139,12 @@ const AdminRegistration = ({ setIsSignUpActive }: IProps) => {
           >
             {showPasswordConfirm ? <VisibilityOffIcon /> : <VisibilityIcon />}
           </div>
-          {errors.confirmPassword && (
-            <p className="text-red-500 text-xs mt-1">
-              {errors.confirmPassword.message}
-            </p>
-          )}
         </div>
+        {errors.confirmPassword && (
+          <p className="text-red-500 text-xs mt-0">
+            {errors.confirmPassword.message}
+          </p>
+        )}
 
         {/* Submit */}
         <button

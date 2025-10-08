@@ -1,10 +1,10 @@
 import React from "react";
 import ProjectBox from "./ProjectBox/ProjectBox";
-import { baseUrl } from "@/components/utils/Variable/baseApi";
 import { TProject } from "@/components/types/globalTypes";
+import config from "@/components/utils/configFile/config";
 
 const Project = async () => {
-  const res = await fetch(`${baseUrl}/projects/`, {
+  const res = await fetch(`${config.baseApi}/projects/`, {
     // cache: "force-cache",
     next: { revalidate: 604800 }, // 7 days
   });

@@ -1,3 +1,4 @@
+import config from "@/components/utils/configFile/config";
 import errotToast from "@/components/utils/svg/Toast/errorToast";
 import {
   BaseQueryApi,
@@ -11,7 +12,7 @@ import {
 const baseQuery = fetchBaseQuery({
   // baseUrl: process.env.BASE_URL,
   // baseUrl: "http://localhost:5000/api",
-  baseUrl: "https://portfolio-server-sandy-delta.vercel.app/api",
+  baseUrl: config.baseApi,
 });
 
 const baseQueryWithRefreshToken: BaseQueryFn<
