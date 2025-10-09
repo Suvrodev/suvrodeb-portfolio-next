@@ -22,7 +22,7 @@ const SocialIconInBody = () => {
     });
   }, []);
   return (
-    <div className="fixed right-20 top-1/2 transform -translate-y-1/2  font-bold text-2x">
+    <div className="fixed right-20 top-1/2 transform -translate-y-1/2  font-bold text-2x z-50">
       {showTopButton && (
         <div>
           <div
