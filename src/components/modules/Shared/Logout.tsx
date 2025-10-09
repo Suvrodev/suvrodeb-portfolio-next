@@ -2,11 +2,11 @@
 
 import React from "react";
 // import { useRouter } from "next/navigation";
-import { clearTokenAction } from "@/components/utils/Function/Actions/Auth/cookiesAction/authService/getCurrentUser";
 import { useAppDispatch } from "@/redux/hooks";
-import { logOut } from "@/redux/features/auth/authSlice";
+import { clearTokenAction } from "@/components/actions/authActions/authService/getCurrentUser";
+import { logOut } from "@/redux/features/AuthManagement/authSlice";
+import LogoutSVG from "@/components/utils/svg/LogoutSVG";
 // import LogoutIcon from "@mui/icons-material/Logout";
-import LogoutSVG from "@/components/svg/LogoutSVG";
 
 const Logout = () => {
   const dispatch = useAppDispatch();
