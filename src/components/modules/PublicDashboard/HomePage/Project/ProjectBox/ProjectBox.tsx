@@ -21,9 +21,12 @@ import Image from "next/image";
 import goLink from "@/components/utils/Functions/goLink";
 // import { useDeleteProjectMutation } from "@/redux/apis/ProjectManagement/projectManagement";
 import { loadingToast, okToast } from "@/components/utils/Toast/toast";
+import { useDeleteProjectMutation } from "@/redux/features/ProjectManagement/projectManagement";
+import { handleRevalidate } from "@/components/actions/apiActions/handleRevalidate";
 
-const ProjectBox = ({ project, admin = true }: IProps) => {
-  // const [deleteProject] = useDeleteProjectMutation();
+const ProjectBox = ({ project, admin }: IProps) => {
+  console.log("Project Box Admin: ", admin);
+  const [deleteProject] = useDeleteProjectMutation();
   const { _id, liveurl, image, name, frontendrepo, backendrepo } = project;
   const path = usePathname();
   const router = useRouter();
@@ -51,6 +54,7 @@ const ProjectBox = ({ project, admin = true }: IProps) => {
     console.log("Res: ", res);
     if (res?.status) {
       okToast(res?.message);
+      handleRevalidate();
     }
   };
 

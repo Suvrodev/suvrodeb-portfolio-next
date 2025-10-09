@@ -4,7 +4,10 @@ import { TProject } from "@/components/types/globalTypes";
 import config from "@/components/utils/configFile/myConfig";
 import myConfig from "@/components/utils/configFile/myConfig";
 
-const Project = async () => {
+interface IProps {
+  admin: boolean;
+}
+const Project = async ({ admin }: IProps) => {
   const res = await fetch(`${config.baseApi}/projects/`, {
     // cache: "force-cache",
     next: {
@@ -22,7 +25,7 @@ const Project = async () => {
       <h1 className="text-2xl font-bold pText mb-10">Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {projects?.map((project: TProject, idx: number) => (
-          <ProjectBox key={idx} project={project} />
+          <ProjectBox key={idx} project={project} admin={admin} />
         ))}
       </div>
     </div>

@@ -16,7 +16,7 @@ const projectManagement = baseApi.injectEndpoints({
       query: (id) => {
         console.log("Blog id In redux: ", id);
         return {
-          url: `/project/${id}`,
+          url: `/projects/${id}`,
           method: "DELETE",
         };
       },

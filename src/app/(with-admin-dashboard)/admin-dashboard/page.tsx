@@ -35,7 +35,7 @@ const AdminDashboardPage = () => {
       </div>
 
       <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="project">
-        <Project />
+        <Project admin={true} />
       </div>
 
       <div className="px-5 md:px-36 py-10 sColor" id="education">
