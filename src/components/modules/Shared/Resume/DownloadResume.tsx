@@ -96,7 +96,7 @@ const DownloadResume: React.FC<DownloadResumeProps> = ({ base64Data }) => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
+    <div className="">
       <button
         onClick={handleDownload}
         aria-label="Download CV"

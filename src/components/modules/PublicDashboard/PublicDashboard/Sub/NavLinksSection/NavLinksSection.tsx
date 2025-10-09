@@ -3,12 +3,9 @@ import Link from "next/link";
 
 import { publicDashboardContents } from "@/components/modules/utils/dashboard/publicDashboardContent";
 import { useEffect, useState } from "react";
+import { handleScroll } from "../handleScroll";
 
-interface Props {
-  handleScroll: (id: string) => void;
-}
-
-const NavLinksSection = ({ handleScroll }: Props) => {
+const NavLinksSection = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {

@@ -1,19 +1,19 @@
 import UserTable from "@/components/modules/AdminDashboard/AllUser/UserTable/UserTable";
 import { TUser } from "@/components/types/globalTypes";
 import myConfig from "@/components/utils/configFile/myConfig";
-import config from "@/components/utils/configFile/myConfig";
 import React from "react";
 
 const AllUserPage = async () => {
-  const res = await fetch(`${config.baseApi}/user`, {
+  const res = await fetch(`${myConfig.baseApi}/user`, {
     next: {
-      revalidate: Number(myConfig.revalidateTime),
+      // revalidate: Number(myConfig.revalidateTime),
       tags: ["user"],
     },
   });
   const data = await res.json();
-  console.log("Data: ", data);
+
   const admins = data?.data;
+  console.log("Admins: ", admins);
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">All Admins</h1>
