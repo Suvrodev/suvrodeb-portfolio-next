@@ -48,7 +48,7 @@ const HomePage = () => {
       <div className="px-5 md:px-36 py-10 sColor" id="price">
         <Pricing />
       </div>
-      <div className="px-5 md:px-36 py-10 sColor" id="price">
+      <div className="px-5 md:px-36 py-10 sColor" id="contact">
         <Contact />
       </div>
 

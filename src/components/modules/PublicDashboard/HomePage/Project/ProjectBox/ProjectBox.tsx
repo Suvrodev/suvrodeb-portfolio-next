@@ -8,7 +8,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 // Icons
-import { Pencil, Trash2, Globe, Server, GithubIcon } from "lucide-react";
+import { Pencil, Trash2, Globe, Server, GithubIcon, Lock } from "lucide-react";
 
 // Utils
 import goLink from "@/components/utils/Functions/goLink";
@@ -80,39 +80,49 @@ const ProjectBox = ({ project, admin }: IProps) => {
       </div>
 
       {/* --- Project Info --- */}
-      <div className=" text-center py-4">
+      <div className=" text-center py-4 px-6 ">
         <h2 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-emerald-600 transition">
           {name}
         </h2>
 
         {/* --- Buttons Section --- */}
-        <div className="flex justify-center gap-2 mt-3">
+        <div className="flex justify-center gap-1 px-10 ">
           {/* Live Button */}
           <button
             onClick={() => goLink(liveurl)}
-            className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-emerald-500 to-blue-500 text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
+            className="flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-semibold bg-gradient-to-r from-emerald-500 to-blue-500 text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
           >
-            <Globe size={18} />
+            <Globe size={14} />
             Live
           </button>
 
           {/* Client Repo */}
-          <button
-            onClick={() => goLink(frontendrepo)}
-            className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-gray-700 to-gray-900 text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
-          >
-            <GithubIcon size={18} />
-            Client
-          </button>
+          {frontendrepo && (
+            <button
+              onClick={() => goLink(frontendrepo)}
+              className="flex items-center gap-2 px-4 py-2 rounded-full text-[12px]  font-semibold bg-gradient-to-r from-gray-700 to-gray-900 text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
+            >
+              <GithubIcon size={14} />
+              Client
+            </button>
+          )}
 
           {/* Server Repo */}
-          <button
-            onClick={() => goLink(backendrepo)}
-            className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
-          >
-            <Server size={18} />
-            Server
-          </button>
+          {backendrepo && (
+            <button
+              onClick={() => goLink(backendrepo)}
+              className="flex items-center gap-2 px-4 py-2 rounded-full text-[12px]  font-semibold bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
+            >
+              <Server size={14} />
+              Server
+            </button>
+          )}
+          {!frontendrepo && !backendrepo && (
+            <button className="flex items-center gap-2 px-4 py-2 rounded-full text-[12px] font-semibold bg-gradient-to-r from-rose-500 to-orange-400 text-white hover:scale-105 hover:shadow-lg hover:shadow-rose-400/30 transition-all duration-300">
+              <Lock size={14} />
+              Private
+            </button>
+          )}
         </div>
       </div>
     </div>
