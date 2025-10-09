@@ -131,7 +131,7 @@ const PublicDashboard = () => {
             <div>
               <Image
                 src={logoImage}
-                alt=""
+                alt="Suvrodeb"
                 className="w-[150px] h-[150px] rounded-full"
               />
             </div>

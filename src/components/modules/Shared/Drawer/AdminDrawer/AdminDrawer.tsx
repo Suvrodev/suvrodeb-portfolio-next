@@ -1,10 +1,10 @@
-import { useAppSelector } from "@/redux/hooks";
 import "./GlobalDrawer.css";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import Logout from "../../Logout/Logout";
+import logoImage from "@/app/assets/HeaderImage/myLogo.png";
+import { Logout } from "@mui/icons-material";
 import { getDrawerComponents } from "./getDrawerComponents";
 
 interface Props {
@@ -12,12 +12,13 @@ interface Props {
   setIsOpen: (value: boolean) => void;
 }
 
-const GlobalDrawer = ({ isOpen, setIsOpen }: Props) => {
-  const { user } = useAppSelector((state) => state.auth);
+const AdminDrawer = ({ isOpen, setIsOpen }: Props) => {
+  // const { user } = useAppSelector((state) => state.auth);
   const path = usePathname();
   // console.log("Path: ", path);
   // console.log("User in global drawer: ", user);
-  const drawerItems = getDrawerComponents(user?.activeRole);
+
+  const drawerItems = getDrawerComponents();
 
   return (
     <div className="">
@@ -59,24 +60,22 @@ const GlobalDrawer = ({ isOpen, setIsOpen }: Props) => {
             className="flex flex-col items-center gap-2 mb-8 mt-20 md:mt-0 "
           >
             <div className="w-28 h-28 relative rounded-full overflow-hidden border-4 border-white shadow-lg">
-              {user?.picture && (
-                <Image
-                  src={user?.picture}
-                  alt="User"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  priority
-                />
-              )}
+              <Image
+                src={logoImage}
+                alt="User"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority
+              />
             </div>
             <div className="text-center mt-4">
               <h2 className="font-semibold text-xl text-gray-800 flex gap-x-1">
-                <span> {user?.firstName}</span>
-                <span> {user?.lastName}</span>
+                {/* <span> {user?.firstName}</span>
+                <span> {user?.lastName}</span> */}
               </h2>
               <p className="text-sm text-gray-500 mt-1 capitalize">
-                {user?.activeRole}
+                {/* {user?.activeRole} */}
               </p>
             </div>
           </motion.div>
@@ -133,4 +132,4 @@ const GlobalDrawer = ({ isOpen, setIsOpen }: Props) => {
   );
 };
 
-export default GlobalDrawer;
+export default AdminDrawer;
