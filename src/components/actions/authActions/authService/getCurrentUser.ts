@@ -1,6 +1,7 @@
 // 👇 Server action or server-only function
 "use server";
 
+import myConfig from "@/components/utils/configFile/myConfig";
 import config from "@/components/utils/configFile/myConfig";
 import { verifyToken } from "@/components/utils/Functions/verifyToken";
 import { cookies } from "next/headers";
@@ -31,5 +32,8 @@ export const getCurrentUserRole = async () => {
 
 export const clearTokenAction = async () => {
   // To clear a cookie, set it with maxAge=0 or expires in the past
-  (await cookies()).set("tutor", "", { path: "/", maxAge: 0 });
+  (await cookies()).set(myConfig.accessTokenPath as string, "", {
+    path: "/",
+    maxAge: 0,
+  });
 };
