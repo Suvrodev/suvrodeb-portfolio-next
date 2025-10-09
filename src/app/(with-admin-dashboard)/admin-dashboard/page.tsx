@@ -1,5 +1,6 @@
 import AboutMe from "@/components/modules/PublicDashboard/HomePage/AboutMe/AboutMe";
 import Banner from "@/components/modules/PublicDashboard/HomePage/Banner/Banner";
+import Contact from "@/components/modules/PublicDashboard/HomePage/Contact/Contact";
 import Education from "@/components/modules/PublicDashboard/HomePage/Education/Education";
 import Experience from "@/components/modules/PublicDashboard/HomePage/Experience/Experience";
 import MyService from "@/components/modules/PublicDashboard/HomePage/MyService/MyService/MyService";
@@ -26,18 +27,18 @@ const AdminDashboardPage = () => {
       <div className="px-5 md:px-36 py-10 " id="service">
         <MyService />
       </div>
-      <div className="px-5 md:px-36 py-10 sColor" id="skill">
+      <div className="px-5 md:px-36 py-10 sColor  overflow-hidden" id="skill">
         <Skill />
       </div>
-      {/*   <div className="p-2 md:p-10 sColor flex justify-start md:justify-center ">
+      <div className="p-2 md:p-10 sColor flex justify-start md:justify-center ">
         <SkillLoading />
-      </div> */}
+      </div>
 
-      {/* <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="project">
+      <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="project">
         <Project />
-      </div> */}
+      </div>
 
-      {/* <div className="px-5 md:px-36 py-10 sColor" id="education">
+      <div className="px-5 md:px-36 py-10 sColor" id="education">
         <Education />
       </div>
       <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="testimonial">
@@ -48,7 +49,7 @@ const AdminDashboardPage = () => {
       </div>
       <div className="px-5 md:px-36 py-10 sColor" id="price">
         <Contact />
-      </div> */}
+      </div>
 
       {/* <div
         className="px-5 md:px-36 py-10 overflow-hidden aboutmeBgColor"

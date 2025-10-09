@@ -34,7 +34,7 @@ const PublicHeaderLayout = ({ children }: ILayout) => {
   if (isMobile === null) return null;
 
   return (
-    <div className="relative flex">
+    <div className="relative flex ">
       {/* Drawer */}
       <AdminDrawer isOpen={isMobile ? isOpen : true} setIsOpen={setIsOpen} />
 
@@ -45,7 +45,7 @@ const PublicHeaderLayout = ({ children }: ILayout) => {
 
       {/* Page content */}
       <div
-        className={`flex-1 ${
+        className={`flex-1 min-w-0 ${
           isMobile ? "mt-[70px] " : "" /* desktop drawer width = 64 */
         }`}
       >
