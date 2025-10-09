@@ -9,7 +9,7 @@ export const cookiesAndStateAction = async (
   dispatch: ReturnType<typeof useAppDispatch>
 ) => {
   try {
-    console.log("Access Token in action: ", accessToken);
+    // console.log("Access Token in action: ", accessToken);
     await setCurentUser(accessToken);
     const currentUser = verifyToken(accessToken);
     dispatch(setUserData({ user: currentUser, token: accessToken }));

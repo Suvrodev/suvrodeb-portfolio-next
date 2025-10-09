@@ -1,6 +1,7 @@
 "use client";
 import { handleRevalidate } from "@/components/actions/apiActions/handleRevalidate";
 import LoadResume from "@/components/modules/Shared/Resume/LoadResume/LoadResume";
+import myConfig from "@/components/utils/configFile/myConfig";
 import { loadingToast, okToast } from "@/components/utils/Toast/toast";
 import { useUpdateResumeMutation } from "@/redux/features/Resume/resumeManagement";
 import { useState } from "react";
@@ -49,7 +50,11 @@ const AdminResume = () => {
   const onSubmit = async (data: TResumeForm) => {
     console.log("Resume Base64:", data.resume);
     loadingToast("Updating Resume");
-    const res = await updateResume(data)?.unwrap();
+    const resumeId = myConfig.resume_ID;
+    const res = await updateResume({
+      _id: resumeId,
+      updateData: { resume: data.resume },
+    })?.unwrap();
     console.log("Res: ", res);
     if (res?.status) {
       okToast("Resume Update Successfully");

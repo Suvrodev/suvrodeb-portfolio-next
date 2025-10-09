@@ -32,6 +32,8 @@ const resumeManagement = baseApi.injectEndpoints({
     }),
     updateResume: builder.mutation({
       query: ({ _id, updateData }) => {
+        console.log("_id in rtk: ", _id);
+        console.log("Body in rtk: ", updateData);
         return {
           url: `/resume/update/${_id}`,
           method: "PATCH",
