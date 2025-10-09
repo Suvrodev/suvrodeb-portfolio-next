@@ -12,10 +12,10 @@ const resumeManagement = baseApi.injectEndpoints({
         };
       },
     }),
-    getResume: builder.query({
-      query: () => {
+    getSingleResume: builder.query({
+      query: (resumeId: string) => {
         return {
-          url: "/resume",
+          url: `/resume/${resumeId}`,
           method: "GET",
         };
       },
@@ -45,7 +45,7 @@ const resumeManagement = baseApi.injectEndpoints({
 
 export const {
   useAddResumeMutation,
-  useGetResumeQuery,
+  useGetSingleResumeQuery,
   useDeleteResumeMutation,
   useUpdateResumeMutation,
 } = resumeManagement;

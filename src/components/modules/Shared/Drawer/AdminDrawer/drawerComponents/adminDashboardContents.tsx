@@ -1,4 +1,3 @@
-// src/components/utils/data/navLinksData.ts
 import {
   Home as HomeIcon,
   Info as InfoIcon,
@@ -8,18 +7,17 @@ import {
   MonetizationOn as MonetizationOnIcon,
   PeopleAlt as PeopleAltIcon,
   Description as DescriptionIcon,
+  AutoStories as AutoStoriesIcon,
 } from "@mui/icons-material";
-
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import { Boxes } from "lucide-react";
 
 export const adminDashboardContents = [
   {
     id: "home",
     label: "Home",
-    href: "#banner",
+    href: "/admin-dashboard#banner",
     icon: HomeIcon,
-    iconSize: 22,
+    iconSize: 10,
     mobileIconSize: 18,
   },
   {
@@ -33,7 +31,7 @@ export const adminDashboardContents = [
   {
     id: "resume",
     label: "Resume",
-    href: "/admin-dashboard/resume",
+    href: "/admin-dashboard/admin-resume",
     icon: DescriptionIcon,
     iconSize: 22,
     mobileIconSize: 18,
@@ -41,7 +39,7 @@ export const adminDashboardContents = [
   {
     id: "about",
     label: "About me",
-    href: "#about",
+    href: "/admin-dashboard#about",
     icon: InfoIcon,
     iconSize: 22,
     mobileIconSize: 18,
@@ -49,15 +47,26 @@ export const adminDashboardContents = [
   {
     id: "service",
     label: "Service",
-    href: "#service",
     icon: ManageAccountsIcon,
     iconSize: 22,
     mobileIconSize: 18,
+    subLinks: [
+      {
+        id: "add-service",
+        label: "Add Service",
+        href: "/admin-dashboard/add-service",
+      },
+      {
+        id: "all-service",
+        label: "All Service",
+        href: "/admin-dashboard#service",
+      },
+    ],
   },
   {
     id: "skill",
     label: "Skill",
-    href: "#skill",
+    href: "/admin-dashboard#skill",
     icon: PsychologyIcon,
     iconSize: 22,
     mobileIconSize: 18,
@@ -65,15 +74,26 @@ export const adminDashboardContents = [
   {
     id: "project",
     label: "Project",
-    href: "#project",
     icon: Boxes,
     iconSize: 20,
     mobileIconSize: 18,
+    subLinks: [
+      {
+        id: "add-project",
+        label: "Add Project",
+        href: "/admin-dashboard/add-project",
+      },
+      {
+        id: "all-project",
+        label: "All Project",
+        href: "/admin-dashboard#project",
+      },
+    ],
   },
   {
     id: "price",
     label: "Price",
-    href: "#price",
+    href: "/admin-dashboard#price",
     icon: MonetizationOnIcon,
     iconSize: 22,
     mobileIconSize: 18,
@@ -81,17 +101,28 @@ export const adminDashboardContents = [
   {
     id: "blog",
     label: "Blog",
-    href: "#blog",
     icon: AutoStoriesIcon,
-    iconSize: 20,
+    iconSize: 2000,
     mobileIconSize: 18,
+    subLinks: [
+      {
+        id: "add-blog",
+        label: "Add Blog",
+        href: "/admin-dashboard/add-blog",
+      },
+      {
+        id: "all-blog",
+        label: "All Blog",
+        href: "/admin-dashboard#blog",
+      },
+    ],
   },
   {
     id: "contact",
     label: "Contact",
     href: "/admin-dashboard/contact",
     icon: EmailIcon,
-    iconSize: 22,
+    iconSize: 10,
     mobileIconSize: 18,
   },
 ];

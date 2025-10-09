@@ -62,15 +62,6 @@ const AdminDrawer = ({ isOpen, setIsOpen }: Props) => {
                 priority
               />
             </div>
-            <div className="text-center mt-4">
-              <h2 className="font-semibold text-xl text-gray-800 flex gap-x-1">
-                {/* <span> {user?.firstName}</span>
-                <span> {user?.lastName}</span> */}
-              </h2>
-              <p className="text-sm text-gray-500 mt-1 capitalize">
-                {/* {user?.activeRole} */}
-              </p>
-            </div>
           </motion.div>
 
           {/* Menu Items with staggered animation */}

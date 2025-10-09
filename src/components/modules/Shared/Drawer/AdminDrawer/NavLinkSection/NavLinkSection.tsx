@@ -1,9 +1,11 @@
 "use client";
-import React from "react";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { adminDashboardContents } from "../drawerComponents/adminDashboardContents";
+import { ChevronDown } from "lucide-react";
 
 interface IProps {
   isOpen: boolean;
@@ -12,16 +14,58 @@ interface IProps {
 
 const NavLinkSection = ({ isOpen, setIsOpen }: IProps) => {
   const path = usePathname();
+  const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+
+  const toggleSubMenu = (id: string) => {
+    setExpandedMenu(expandedMenu === id ? null : id);
+  };
 
   return (
     <nav className="flex-1 mt-4">
       <ul className="flex flex-col gap-y-1 md:gap-y-2">
         {adminDashboardContents.map((item, idx) => {
-          const isActive = path === item.href;
-          const Icon = item.icon;
+          const isActive =
+            path === item.href ||
+            (item.subLinks && item.subLinks.some((sub) => sub.href === path));
 
-          // Detect whether it's a Lucide or MUI icon
+          const Icon = item.icon;
+          const hasSubLinks = !!item.subLinks;
+
+          // Detect if the icon is from Material UI or Lucide
           const isLucide = !("muiName" in Icon);
+
+          // Unified icon rendering logic
+          const renderIcon = () => {
+            if (isLucide) {
+              return (
+                <Icon
+                  size={item.iconSize}
+                  className={`transition-transform duration-300 group-hover:scale-110 ${
+                    isActive ? "text-purple-400" : "text-purple-300"
+                  }`}
+                />
+              );
+            } else {
+              // Material UI icon styling fix
+              return (
+                <Icon
+                  sx={{
+                    fontSize: `${item.iconSize}px`,
+                    width: `${item.iconSize}px`,
+                    height: `${item.iconSize}px`,
+                    minWidth: `${item.iconSize}px`,
+                    minHeight: `${item.iconSize}px`,
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                  className={`transition-transform duration-300 group-hover:scale-110 ${
+                    isActive ? "text-purple-400" : "text-purple-300"
+                  }`}
+                />
+              );
+            }
+          };
 
           return (
             <motion.li
@@ -30,56 +74,89 @@ const NavLinkSection = ({ isOpen, setIsOpen }: IProps) => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 * idx + 0.2 }}
             >
-              <Link
-                href={item.href}
-                onClick={() => isOpen && setIsOpen(false)}
-                className={`flex items-center gap-4 px-2 py-1 rounded-xl transition-all duration-300 group ${
-                  isActive
-                    ? "bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-white border border-purple-500/30 shadow-md"
-                    : "text-gray-300 hover:text-white hover:bg-white/10 border border-transparent"
-                }`}
-              >
-                {/* Icon */}
-                <span
-                  className={`transition-transform duration-300 group-hover:scale-110 ${
-                    isActive ? "text-purple-400" : "text-purple-300"
+              {/* === MAIN MENU ITEM === */}
+              {hasSubLinks ? (
+                <div
+                  onClick={() => toggleSubMenu(item.id)}
+                  className={`flex items-center gap-4 px-2 py-1 rounded-xl transition-all duration-300 group cursor-pointer ${
+                    isActive
+                      ? "bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-white border border-purple-500/30 shadow-md"
+                      : "text-gray-300 hover:text-white hover:bg-white/10 border border-transparent"
                   }`}
                 >
-                  {isLucide ? (
-                    <Icon
-                      size={item.iconSize}
-                      className={`${
-                        isActive ? "text-purple-400" : "text-purple-300"
-                      }`}
-                    />
-                  ) : (
-                    <Icon
-                      className={`${
-                        isActive ? "text-purple-400" : "text-purple-300"
-                      }`}
-                      style={{ fontSize: item.iconSize }}
-                    />
-                  )}
-                </span>
+                  {/* ICON */}
+                  {renderIcon()}
 
-                {/* Label */}
-                <span
-                  className={`text-[12px] ${
-                    isActive ? "text-white" : "text-gray-300"
-                  }`}
-                >
-                  {item.label}
-                </span>
+                  {/* LABEL */}
+                  <span
+                    className={`text-[12px] ${
+                      isActive ? "text-white" : "text-gray-300"
+                    }`}
+                  >
+                    {item.label}
+                  </span>
 
-                {/* Arrow Icon */}
-                <span
-                  className={`ml-auto text-gray-400 opacity-0 group-hover:opacity-100 transition-all duration-300 ${
-                    isActive ? "opacity-100 text-purple-400" : ""
+                  {/* CHEVRON */}
+                  <span
+                    className={`ml-auto text-gray-400 transition-transform duration-300 ${
+                      expandedMenu === item.id ? "rotate-180" : ""
+                    } ${isActive ? "text-purple-400" : ""}`}
+                  >
+                    <ChevronDown size={16} />
+                  </span>
+                </div>
+              ) : (
+                <Link
+                  href={item.href}
+                  onClick={() => isOpen && setIsOpen(false)}
+                  className={`flex items-center gap-4 px-2 py-1 rounded-xl transition-all duration-300 group ${
+                    isActive
+                      ? "bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-white border border-purple-500/30 shadow-md"
+                      : "text-gray-300 hover:text-white hover:bg-white/10 border border-transparent"
                   }`}
                 >
-                  →
-                </span>
-              </Link>
+                  {/* ICON */}
+                  {renderIcon()}
+
+                  {/* LABEL */}
+                  <span
+                    className={`text-[12px] ${
+                      isActive ? "text-white" : "text-gray-300"
+                    }`}
+                  >
+                    {item.label}
+                  </span>
+                </Link>
+              )}
+
+              {/* === SUB MENU === */}
+              {hasSubLinks && expandedMenu === item.id && (
+                <ul className="ml-6 mt-1 flex flex-col gap-y-1">
+                  {item.subLinks.map((subItem) => (
+                    <li key={subItem.id}>
+                      <Link
+                        href={subItem.href}
+                        onClick={() => isOpen && setIsOpen(false)}
+                        className={`flex items-center gap-4 px-2 py-1 rounded-xl transition-all duration-300 group ${
+                          path === subItem.href
+                            ? "bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-white border border-purple-500/30 shadow-md"
+                            : "text-gray-300 hover:text-white hover:bg-white/10 border border-transparent"
+                        }`}
+                      >
+                        <span
+                          className={`text-[12px] ${
+                            path === subItem.href
+                              ? "text-white"
+                              : "text-gray-300"
+                          }`}
+                        >
+                          {subItem.label}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </motion.li>
           );
         })}
