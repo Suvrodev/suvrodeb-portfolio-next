@@ -6,7 +6,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import AdminRegistration from "./AdminRegistration";
 import { useLoginMutation } from "@/redux/features/AuthManagement/authApi";
-import { loadingToast, okToast } from "@/components/utils/svg/Toast/toast";
+import { loadingToast, okToast } from "@/components/utils/Toast/toast";
 import { cookiesAndStateAction } from "@/components/actions/authActions/CookiesAndStateAction/CookiesAndStateAction";
 import { useAppDispatch } from "@/redux/hooks";
 

@@ -1,5 +1,5 @@
 import config from "@/components/utils/configFile/config";
-import errotToast from "@/components/utils/svg/Toast/errorToast";
+import errotToast from "@/components/utils/Toast/errorToast";
 // import { baseApiVar } from "@/components/utils/Variable/baseApiVar";
 import {
   BaseQueryApi,

@@ -4,8 +4,8 @@ import "./Contact.css";
 import contactLottie from "@/app/assets/lottie/contact.json";
 import Lottie from "lottie-react";
 import React from "react";
-import errotToast from "@/components/utils/svg/Toast/errorToast";
-import { loadingToast, okToast } from "@/components/utils/svg/Toast/toast";
+import errotToast from "@/components/utils/Toast/errorToast";
+import { loadingToast, okToast } from "@/components/utils/Toast/toast";
 import { useForm } from "react-hook-form";
 
 type FormValues = {

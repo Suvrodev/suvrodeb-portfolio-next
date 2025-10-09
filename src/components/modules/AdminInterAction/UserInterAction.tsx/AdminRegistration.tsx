@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useRegistrationMutation } from "@/redux/features/AuthManagement/authApi";
-import { loadingToast, okToast } from "@/components/utils/svg/Toast/toast";
+import { loadingToast, okToast } from "@/components/utils/Toast/toast";
 
 interface IProps {
   setIsSignUpActive: (value: boolean) => void;

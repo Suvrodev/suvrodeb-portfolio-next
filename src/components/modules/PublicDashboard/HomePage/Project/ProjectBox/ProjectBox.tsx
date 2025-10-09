@@ -20,7 +20,7 @@ import { TProject } from "@/components/types/globalTypes";
 import Image from "next/image";
 import goLink from "@/components/utils/Functions/goLink";
 // import { useDeleteProjectMutation } from "@/redux/apis/ProjectManagement/projectManagement";
-import { loadingToast, okToast } from "@/components/utils/svg/Toast/toast";
+import { loadingToast, okToast } from "@/components/utils/Toast/toast";
 
 const ProjectBox = ({ project, admin = true }: IProps) => {
   // const [deleteProject] = useDeleteProjectMutation();
