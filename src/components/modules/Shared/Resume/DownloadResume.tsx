@@ -109,7 +109,7 @@ const DownloadResume: React.FC<DownloadResumeProps> = ({ base64Data }) => {
           transition-all duration-300 ease-out 
           flex items-center gap-2.5 
           backdrop-blur-md overflow-hidden
-          hover:shadow-blue-500/20 hover:shadow-xl"
+          hover:shadow-blue-500/20 hover:shadow-xl "
       >
         {/* 🔹 Animated background shine */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-[1200ms]" />

@@ -64,14 +64,14 @@ const Skill = () => {
       <div className="w-full mt-12">
         <Marquee
           gradient={false}
-          speed={80}
+          speed={200}
           pauseOnHover={true}
           pauseOnClick={true}
           delay={0}
           play={true}
           direction="left"
         >
-          <div className="flex gap-5 w-fit">
+          <div className="flex gap-5 ml-5 w-fit">
             {skillsArray.map((skill: TSkill, idx: number) => (
               <SkillBox skill={skill} key={idx} />
             ))}

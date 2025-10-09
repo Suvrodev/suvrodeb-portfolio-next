@@ -1,7 +1,6 @@
 import PublicDashboard from "@/components/modules/PublicDashboard/PublicDashboard/PublicDashboard";
 import MobileHeader from "@/components/modules/PublicDashboard/Shared/MobileFooter/MobileHeader";
 import Footer from "@/components/modules/Shared/Footer/Footer";
-// import GotoTop from "@/components/modules/Shared/GotoTop/GotoTop";
 import FetchResume from "@/components/modules/Shared/Resume/FetchResume/FetchResume";
 import SocialIconInBody from "@/components/modules/Shared/SocialIconInBody/SocialIconInBody";
 
@@ -27,9 +26,7 @@ const PublicDashboardLayout = ({ children }: IProps) => {
       <div>
         <SocialIconInBody />
         {/* <GotoTop /> */}
-
-        <div className="fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
-          {/* <FetchResume /> */}
+        <div className="md:fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
           <FetchResume />
         </div>
       </div>
