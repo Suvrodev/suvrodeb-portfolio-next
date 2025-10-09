@@ -1,10 +1,5 @@
-// 👇 Server action function
-// "use server";
-// import { cookies } from "next/headers";
 export const setCurentUser = async (token: string) => {
-  // (await cookies()).set("tutor", token);
-
-  // console.log("Token in set current user: ", token);
+  console.log("Token in set current user: ", token);
 
   try {
     const res = await fetch("/api/setToken", {

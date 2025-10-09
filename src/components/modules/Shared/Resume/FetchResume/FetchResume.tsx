@@ -13,7 +13,7 @@ const FetchResume = async () => {
 
   const data = await res.json();
   const resume = data?.data?.resume;
-  console.log("Resume res: ", resume);
+  // console.log("Resume res: ", resume);
   return (
     <div className="">
       <DownloadResume base64Data={resume} />
