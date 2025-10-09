@@ -1,5 +1,4 @@
 "use client";
-import "./ProjectBox.css";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -46,7 +45,7 @@ const ProjectBox = ({ project, admin }: IProps) => {
   return (
     <div
       data-aos="fade-up"
-      className="relative rounded-xl  border border-gray-300 shadow-lg bg-white/60 backdrop-blur-md hover:shadow-2xl transition-all duration-300 group"
+      className="relative rounded-xl projectBoxBG border border-gray-300 shadow-lg bg-white/60 backdrop-blur-md hover:shadow-2xl transition-all duration-300 group"
     >
       {/* --- Admin Buttons --- */}
       {admin && (

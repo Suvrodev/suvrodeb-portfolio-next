@@ -120,7 +120,7 @@ export const adminDashboardContents = [
   {
     id: "contact",
     label: "Contact",
-    href: "/admin-dashboard/contact",
+    href: "/admin-dashboard/admin-message",
     icon: EmailIcon,
     iconSize: 10,
     mobileIconSize: 18,
