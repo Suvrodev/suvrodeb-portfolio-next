@@ -14,7 +14,9 @@ import {
 } from "lucide-react";
 import { compressAndConvertToBase64 } from "@/components/utils/Functions/images/compressAndConvertToBase64";
 import { useAddProjectMutation } from "@/redux/features/ProjectManagement/projectManagement";
-import { loadingToast } from "@/components/utils/Toast/toast";
+import { loadingToast, okToast } from "@/components/utils/Toast/toast";
+import { useAppSelector } from "@/redux/hooks";
+import erToast from "@/components/utils/Toast/errorToast";
 
 type TProjectForm = {
   name: string;
@@ -25,6 +27,8 @@ type TProjectForm = {
 };
 
 const AddProject = () => {
+  const { user } = useAppSelector((state) => state.auth);
+  console.log("User in add project: ", user);
   const [preview, setPreview] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState(false);
   const [imageError, setImageError] = useState<string | null>(null);
@@ -74,18 +78,16 @@ const AddProject = () => {
       return;
     }
 
+    if (!user) {
+      erToast("Hey bro you are not admin");
+    }
+
     loadingToast("Adding Project");
     const res = await addProject(data).unwrap();
     console.log("Res: ", res);
-
-    // setIsSubmitting(false);
-    // setIsSuccess(true);
-
-    // setTimeout(() => {
-    //   reset();
-    //   setPreview(null);
-    //   setIsSuccess(false);
-    // }, 3000);
+    if (res?.success) {
+      okToast("Project Added  Succesfully");
+    }
   };
 
   const inputStyle =
@@ -120,7 +122,7 @@ const AddProject = () => {
 
         {/* ✅ Success Message */}
         <AnimatePresence>
-          {isSuccess && (
+          {!isLoading && (
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -200,6 +202,7 @@ const AddProject = () => {
                 <FolderOpen className="w-4 h-4 text-indigo-300" /> Project Name
               </label>
               <input
+                value={"My Project"}
                 type="text"
                 {...register("name", { required: "Project name is required" })}
                 placeholder="My Portfolio"
@@ -219,6 +222,7 @@ const AddProject = () => {
               </label>
               <input
                 type="url"
+                value="https://www.youtube.com/watch?v=lBRoAgAiZaI&list=RDlBRoAgAiZaI&index=2"
                 {...register("liveurl", {
                   required: "Live URL is required",
                 })}
@@ -242,6 +246,7 @@ const AddProject = () => {
               </label>
               <input
                 type="url"
+                value="https://www.youtube.com/watch?v=lBRoAgAiZaI&list=RDlBRoAgAiZaI&index=2"
                 {...register("frontendrepo")}
                 placeholder="https://github.com/..."
                 className={inputStyle}
@@ -255,6 +260,7 @@ const AddProject = () => {
               </label>
               <input
                 type="url"
+                value="https://www.youtube.com/watch?v=lBRoAgAiZaI&list=RDlBRoAgAiZaI&index=2"
                 {...register("backendrepo")}
                 placeholder="https://github.com/..."
                 className={inputStyle}

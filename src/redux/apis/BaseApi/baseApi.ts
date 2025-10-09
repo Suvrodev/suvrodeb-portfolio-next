@@ -1,5 +1,6 @@
 import config from "@/components/utils/configFile/config";
 import errotToast from "@/components/utils/Toast/errorToast";
+import { RootState } from "@/redux/store";
 // import { baseApiVar } from "@/components/utils/Variable/baseApiVar";
 import {
   BaseQueryApi,
@@ -11,11 +12,19 @@ import {
 } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  // baseUrl: process.env.BASE_URL,
-  // baseUrl: "http://localhost:5000/api",
   baseUrl: config.baseApi,
-  // baseUrl: baseApiVar,
   credentials: "include",
+
+  prepareHeaders: (headers, { getState }) => {
+    const user = (getState() as RootState).auth.user;
+    console.log("User in base api: ", user);
+    const token = (getState() as RootState).auth.token;
+    console.log("*****************Token: ", token);
+    if (token) {
+      headers.set("Authorization", `Bearer ${token}`);
+    }
+    return headers;
+  },
 });
 
 const baseQueryWithRefreshToken: BaseQueryFn<

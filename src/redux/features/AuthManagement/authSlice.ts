@@ -18,9 +18,10 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setUserData: (state, action) => {
-      const getUser: TAuthuser = action.payload;
-      console.log("Get user: ", getUser);
-      state.user = getUser;
+      const { user, token } = action.payload;
+      console.log("Get user: ", user);
+      state.user = user;
+      state.token = token;
     },
     logOut: (state) => {
       state.token = null;
