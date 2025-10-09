@@ -9,6 +9,7 @@ import { useLoginMutation } from "@/redux/features/AuthManagement/authApi";
 import { loadingToast, okToast } from "@/components/utils/Toast/toast";
 import { cookiesAndStateAction } from "@/components/actions/authActions/CookiesAndStateAction/CookiesAndStateAction";
 import { useAppDispatch } from "@/redux/hooks";
+import { useRouter } from "next/navigation";
 
 interface IFormInput {
   email: string;
@@ -19,8 +20,8 @@ const AdminLogin = () => {
   const [doLogin, { isLoading }] = useLoginMutation();
   const [isSignUpActive, setIsSignUpActive] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
   const {
     register,
@@ -42,9 +43,9 @@ const AdminLogin = () => {
     if (res?.success) {
       okToast("Login Successfully");
       const accessToken = res?.data?.accessToken;
-
       await cookiesAndStateAction(accessToken, dispatch);
       reset();
+      router.push("/admin-dashboard");
     }
   };
 
