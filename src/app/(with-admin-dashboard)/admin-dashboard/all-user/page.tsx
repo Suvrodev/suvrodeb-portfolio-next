@@ -1,12 +1,13 @@
 import UserTable from "@/components/modules/AdminDashboard/AllUser/UserTable/UserTable";
 import { TUser } from "@/components/types/globalTypes";
-import config from "@/components/utils/configFile/config";
+import myConfig from "@/components/utils/configFile/myConfig";
+import config from "@/components/utils/configFile/myConfig";
 import React from "react";
 
 const AllUserPage = async () => {
   const res = await fetch(`${config.baseApi}/user`, {
     next: {
-      revalidate: 1,
+      revalidate: Number(myConfig.revalidateTime),
       tags: ["user"],
     },
   });

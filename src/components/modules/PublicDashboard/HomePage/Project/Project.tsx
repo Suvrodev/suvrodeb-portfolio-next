@@ -1,12 +1,16 @@
 import React from "react";
 import ProjectBox from "./ProjectBox/ProjectBox";
 import { TProject } from "@/components/types/globalTypes";
-import config from "@/components/utils/configFile/config";
+import config from "@/components/utils/configFile/myConfig";
+import myConfig from "@/components/utils/configFile/myConfig";
 
 const Project = async () => {
   const res = await fetch(`${config.baseApi}/projects/`, {
     // cache: "force-cache",
-    next: { revalidate: 604800 }, // 7 days
+    next: {
+      revalidate: Number(myConfig.revalidateTime),
+      tags: ["projects"],
+    },
   });
   const data = await res.json();
   // console.log("Data: ", data);

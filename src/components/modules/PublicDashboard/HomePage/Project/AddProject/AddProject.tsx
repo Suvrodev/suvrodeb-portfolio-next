@@ -17,6 +17,7 @@ import { useAddProjectMutation } from "@/redux/features/ProjectManagement/projec
 import { loadingToast, okToast } from "@/components/utils/Toast/toast";
 import { useAppSelector } from "@/redux/hooks";
 import erToast from "@/components/utils/Toast/errorToast";
+import { handleRevalidate } from "@/components/actions/apiActions/handleRevalidate";
 
 type TProjectForm = {
   name: string;
@@ -87,6 +88,11 @@ const AddProject = () => {
     console.log("Res: ", res);
     if (res?.success) {
       okToast("Project Added  Succesfully");
+      setIsSuccess(true);
+      reset();
+      setPreview(null);
+      handleRevalidate();
+      setTimeout(() => setIsSuccess(false), 4000);
     }
   };
 
@@ -122,7 +128,7 @@ const AddProject = () => {
 
         {/* ✅ Success Message */}
         <AnimatePresence>
-          {!isLoading && (
+          {isSuccess && (
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -202,7 +208,6 @@ const AddProject = () => {
                 <FolderOpen className="w-4 h-4 text-indigo-300" /> Project Name
               </label>
               <input
-                value={"My Project"}
                 type="text"
                 {...register("name", { required: "Project name is required" })}
                 placeholder="My Portfolio"
@@ -222,7 +227,6 @@ const AddProject = () => {
               </label>
               <input
                 type="url"
-                value="https://www.youtube.com/watch?v=lBRoAgAiZaI&list=RDlBRoAgAiZaI&index=2"
                 {...register("liveurl", {
                   required: "Live URL is required",
                 })}
@@ -246,7 +250,6 @@ const AddProject = () => {
               </label>
               <input
                 type="url"
-                value="https://www.youtube.com/watch?v=lBRoAgAiZaI&list=RDlBRoAgAiZaI&index=2"
                 {...register("frontendrepo")}
                 placeholder="https://github.com/..."
                 className={inputStyle}
@@ -260,7 +263,6 @@ const AddProject = () => {
               </label>
               <input
                 type="url"
-                value="https://www.youtube.com/watch?v=lBRoAgAiZaI&list=RDlBRoAgAiZaI&index=2"
                 {...register("backendrepo")}
                 placeholder="https://github.com/..."
                 className={inputStyle}

@@ -1,4 +1,4 @@
-import config from "@/components/utils/configFile/config";
+import config from "@/components/utils/configFile/myConfig";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {

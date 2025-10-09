@@ -1,7 +1,7 @@
 // 👇 Server action or server-only function
 "use server";
 
-import config from "@/components/utils/configFile/config";
+import config from "@/components/utils/configFile/myConfig";
 import { verifyToken } from "@/components/utils/Functions/verifyToken";
 import { cookies } from "next/headers";
 

@@ -1,4 +1,4 @@
-import config from "@/components/utils/configFile/config";
+import config from "@/components/utils/configFile/myConfig";
 import errotToast from "@/components/utils/Toast/errorToast";
 import { RootState } from "@/redux/store";
 // import { baseApiVar } from "@/components/utils/Variable/baseApiVar";
