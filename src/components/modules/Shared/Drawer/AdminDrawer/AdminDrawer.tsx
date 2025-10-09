@@ -1,11 +1,9 @@
-import "./GlobalDrawer.css";
-import { usePathname } from "next/navigation";
+import "./AdminDrawer.css";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import logoImage from "@/app/assets/HeaderImage/myLogo.png";
 import { Logout } from "@mui/icons-material";
-import { getDrawerComponents } from "./getDrawerComponents";
+import NavLinkSection from "./NavLinkSection/NavLinkSection";
 
 interface Props {
   isOpen: boolean;
@@ -13,13 +11,6 @@ interface Props {
 }
 
 const AdminDrawer = ({ isOpen, setIsOpen }: Props) => {
-  // const { user } = useAppSelector((state) => state.auth);
-  const path = usePathname();
-  // console.log("Path: ", path);
-  // console.log("User in global drawer: ", user);
-
-  const drawerItems = getDrawerComponents();
-
   return (
     <div className="">
       {/* Overlay with smooth animation */}
@@ -44,8 +35,10 @@ const AdminDrawer = ({ isOpen, setIsOpen }: Props) => {
         exit={{ x: "-100%" }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
         className={`
-          fixed top-0 left-0 h-screen bg-gradient-to-b from-white to-gray-50 z-50 
-          shadow-xl p-6 w-72 border-r border-gray-200
+          fixed top-0 left-0 h-screen 
+         
+           bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900/90
+          z-50 shadow-xl p-6 w-72 border-r border-green-200
           md:sticky md:top-0 md:h-screen md:translate-x-0 md:flex-shrink-0
           flex flex-col justify-between 
         `}
@@ -81,36 +74,7 @@ const AdminDrawer = ({ isOpen, setIsOpen }: Props) => {
           </motion.div>
 
           {/* Menu Items with staggered animation */}
-          <nav className="flex-1 ">
-            <ul className="flex flex-col gap-y-4 md:gap-y-6">
-              {drawerItems.map((item, idx) => (
-                <motion.li
-                  key={idx}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * idx + 0.3 }}
-                >
-                  <Link
-                    href={item.path}
-                    className={`flex items-center gap-4 rounded-lg text-gray-600 hover:bg-purple-50 hover:text-purple-700 transition-all duration-200 group ${
-                      item.path === path ? "text-purple-600" : ""
-                    }`}
-                    onClick={() => isOpen && setIsOpen(false)}
-                  >
-                    <span className="text-purple-600 group-hover:text-purple-800 transition-colors duration-200">
-                      {item.icon}
-                    </span>
-                    <span className="text-[14px] md:text-[16px]">
-                      {item.label}
-                    </span>
-                    <span className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                      →
-                    </span>
-                  </Link>
-                </motion.li>
-              ))}
-            </ul>
-          </nav>
+          <NavLinkSection isOpen={isOpen} setIsOpen={setIsOpen} />
           <div className="my-4">
             <Logout />
           </div>
@@ -124,7 +88,7 @@ const AdminDrawer = ({ isOpen, setIsOpen }: Props) => {
           className="text-center mt-6 text-xs text-gray-400 flex flex-col items-center"
         >
           <div className="w-16 h-px bg-gray-200 mb-3"></div>
-          <p>&copy; 2025 Tutor Point</p>
+          <p>&copy; 2025 Suvrodeb Howlader</p>
           <p className="mt-1">All rights reserved</p>
         </motion.div>
       </motion.div>

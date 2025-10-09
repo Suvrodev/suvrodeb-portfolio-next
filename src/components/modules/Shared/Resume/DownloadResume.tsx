@@ -82,7 +82,8 @@ const DownloadResume = () => {
     <div className="fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
       <button
         onClick={handleDownload}
-        className="group relative bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900/90
+        className="group relative 
+        bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900/90
                    text-white font-semibold px-6 py-3 rounded-xl shadow-2xl hover:shadow-2xl
                    hover:shadow-slate-500/25 focus:outline-none focus:ring-2 focus:ring-slate-400/50 focus:ring-offset-2 focus:ring-offset-slate-900/50
                    border border-slate-600/50 hover:border-slate-500/60
