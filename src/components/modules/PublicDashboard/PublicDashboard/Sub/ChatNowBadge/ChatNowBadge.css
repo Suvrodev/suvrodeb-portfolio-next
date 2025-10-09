@@ -1,0 +1,19 @@
+/* যদি globals.css এ add করেন */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float {
+  animation: float 2s ease-in-out infinite;
+}
+
+.shadow-3xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 25px -5px rgba(34, 197, 94, 0.3);
+}

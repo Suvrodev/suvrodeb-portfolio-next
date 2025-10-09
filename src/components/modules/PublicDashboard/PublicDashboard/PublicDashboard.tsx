@@ -8,6 +8,7 @@ import logoImage from "@/app/assets/HeaderImage/myLogo.png";
 import { useRouter } from "next/navigation";
 import NavLinksSection from "./Sub/NavLinksSection/NavLinksSection";
 import SocialIconSection from "./Sub/SocialIconSection/SocialIconSection";
+import ChatNowBadge from "./Sub/ChatNowBadge/ChatNowBadge";
 
 const PublicDashboard = () => {
   const router = useRouter();
@@ -126,7 +127,7 @@ const PublicDashboard = () => {
   return (
     <div className="sticky top-0">
       <div className="bg-[#F3F9FF] h-[100vh] w-full flex flex-col items-center text-black overflow-hidden relative">
-        <div className="mt-10 mb-8">
+        <div className="mt-10 mb-8 relative w-full flex flex-col justify-center items-center ">
           <Link href={"banner"} className="cursor-pointer z-10">
             <div>
               <Image
@@ -141,6 +142,10 @@ const PublicDashboard = () => {
           >
             Suvrodeb
           </h1>
+
+          <div>
+            <ChatNowBadge />
+          </div>
         </div>
 
         {/* Link start */}

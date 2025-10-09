@@ -1,7 +1,7 @@
 "use client";
 import "./ProjectBox.css";
 import { useEffect } from "react";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { TProject } from "@/components/types/globalTypes";
 import AOS from "aos";
@@ -24,7 +24,6 @@ interface IProps {
 const ProjectBox = ({ project, admin }: IProps) => {
   const { _id, liveurl, image, name, frontendrepo, backendrepo } = project;
   const [deleteProject] = useDeleteProjectMutation();
-  const path = usePathname();
   const router = useRouter();
 
   useEffect(() => {
