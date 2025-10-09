@@ -2,8 +2,8 @@ import "./AdminDrawer.css";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import logoImage from "@/app/assets/HeaderImage/myLogo.png";
-import { Logout } from "@mui/icons-material";
 import NavLinkSection from "./NavLinkSection/NavLinkSection";
+import Logout from "../../Logout";
 
 interface Props {
   isOpen: boolean;

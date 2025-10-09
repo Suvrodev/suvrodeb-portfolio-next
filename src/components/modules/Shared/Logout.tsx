@@ -27,7 +27,6 @@ const Logout = () => {
       className="px-4 py-2 bg-[#EBECF0] text-black rounded-lg hover:bg-[#D0D4DD] transition-colors flex justify-center items-center gap-x-2"
     >
       Logout
-      {/* <LogoutIcon /> */}
       <LogoutSVG />
     </button>
   );

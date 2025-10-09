@@ -15,10 +15,13 @@ const NavLinkSection = ({ isOpen, setIsOpen }: IProps) => {
 
   return (
     <nav className="flex-1 mt-4">
-      <ul className="flex flex-col gap-y-3 md:gap-y-4">
+      <ul className="flex flex-col gap-y-1 md:gap-y-2">
         {adminDashboardContents.map((item, idx) => {
           const isActive = path === item.href;
           const Icon = item.icon;
+
+          // Detect whether it's a Lucide or MUI icon
+          const isLucide = !("muiName" in Icon);
 
           return (
             <motion.li
@@ -30,7 +33,7 @@ const NavLinkSection = ({ isOpen, setIsOpen }: IProps) => {
               <Link
                 href={item.href}
                 onClick={() => isOpen && setIsOpen(false)}
-                className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group ${
+                className={`flex items-center gap-4 px-2 py-1 rounded-xl transition-all duration-300 group ${
                   isActive
                     ? "bg-gradient-to-r from-purple-600/30 to-indigo-600/30 text-white border border-purple-500/30 shadow-md"
                     : "text-gray-300 hover:text-white hover:bg-white/10 border border-transparent"
@@ -42,17 +45,26 @@ const NavLinkSection = ({ isOpen, setIsOpen }: IProps) => {
                     isActive ? "text-purple-400" : "text-purple-300"
                   }`}
                 >
-                  <Icon
-                    size={item.iconSize}
-                    className={`${
-                      isActive ? "text-purple-400" : "text-purple-300"
-                    }`}
-                  />
+                  {isLucide ? (
+                    <Icon
+                      size={item.iconSize}
+                      className={`${
+                        isActive ? "text-purple-400" : "text-purple-300"
+                      }`}
+                    />
+                  ) : (
+                    <Icon
+                      className={`${
+                        isActive ? "text-purple-400" : "text-purple-300"
+                      }`}
+                      style={{ fontSize: item.iconSize }}
+                    />
+                  )}
                 </span>
 
                 {/* Label */}
                 <span
-                  className={`text-[15px] font-medium tracking-wide ${
+                  className={`text-[12px] ${
                     isActive ? "text-white" : "text-gray-300"
                   }`}
                 >

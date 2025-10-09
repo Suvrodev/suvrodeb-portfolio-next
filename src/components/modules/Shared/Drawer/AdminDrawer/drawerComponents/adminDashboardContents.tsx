@@ -6,6 +6,8 @@ import {
   Psychology as PsychologyIcon,
   Email as EmailIcon,
   MonetizationOn as MonetizationOnIcon,
+  PeopleAlt as PeopleAltIcon,
+  Description as DescriptionIcon,
 } from "@mui/icons-material";
 
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
@@ -17,6 +19,22 @@ export const adminDashboardContents = [
     label: "Home",
     href: "#banner",
     icon: HomeIcon,
+    iconSize: 22,
+    mobileIconSize: 18,
+  },
+  {
+    id: "allUser",
+    label: "All User",
+    href: "/admin-dashboard/all-user",
+    icon: PeopleAltIcon,
+    iconSize: 22,
+    mobileIconSize: 18,
+  },
+  {
+    id: "resume",
+    label: "Resume",
+    href: "/admin-dashboard/resume",
+    icon: DescriptionIcon,
     iconSize: 22,
     mobileIconSize: 18,
   },
@@ -71,7 +89,7 @@ export const adminDashboardContents = [
   {
     id: "contact",
     label: "Contact",
-    href: "#contact",
+    href: "/admin-dashboard/contact",
     icon: EmailIcon,
     iconSize: 22,
     mobileIconSize: 18,
