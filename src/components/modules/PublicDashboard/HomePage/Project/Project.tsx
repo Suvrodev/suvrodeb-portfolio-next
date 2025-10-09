@@ -1,14 +1,13 @@
 import React from "react";
 import ProjectBox from "./ProjectBox/ProjectBox";
 import { TProject } from "@/components/types/globalTypes";
-import config from "@/components/utils/configFile/myConfig";
 import myConfig from "@/components/utils/configFile/myConfig";
 
 interface IProps {
   admin: boolean;
 }
 const Project = async ({ admin }: IProps) => {
-  const res = await fetch(`${config.baseApi}/projects/`, {
+  const res = await fetch(`${myConfig.baseApi}/projects/`, {
     // cache: "force-cache",
     next: {
       revalidate: Number(myConfig.revalidateTime),

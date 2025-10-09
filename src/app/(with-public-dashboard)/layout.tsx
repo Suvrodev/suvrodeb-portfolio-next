@@ -1,10 +1,8 @@
-"use client";
-
 import PublicDashboard from "@/components/modules/PublicDashboard/PublicDashboard/PublicDashboard";
 import MobileHeader from "@/components/modules/PublicDashboard/Shared/MobileFooter/MobileHeader";
 import Footer from "@/components/modules/Shared/Footer/Footer";
 import GotoTop from "@/components/modules/Shared/GotoTop/GotoTop";
-import DownloadResume from "@/components/modules/Shared/Resume/DownloadResume";
+import FetchResume from "@/components/modules/Shared/Resume/FetchResume/FetchResume";
 import SocialIconInBody from "@/components/modules/Shared/SocialIconInBody/SocialIconInBody";
 
 interface IProps {
@@ -31,7 +29,7 @@ const PublicDashboardLayout = ({ children }: IProps) => {
         <SocialIconInBody />
         <GotoTop />
 
-        <DownloadResume />
+        <FetchResume />
       </div>
     </div>
   );
