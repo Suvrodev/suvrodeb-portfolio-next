@@ -17,7 +17,6 @@ import DockerSVG from "@/components/utils/svg/Skills/DockerSVG";
 import BootstrapSVG from "@/components/utils/svg/Skills/BootstrapSVG";
 import MySqlSVG from "@/components/utils/svg/Skills/MySqlSVG";
 import { TSkill } from "@/components/types/globalTypes";
-import MongoDbSVG from "@/components/utils/svg/Skills/MongoDbSVG";
 import PostgressSql from "@/components/utils/svg/Skills/PostgressSql";
 import AWS_SVG from "@/components/utils/svg/Skills/AWS_SVG";
 import MaterialSVG from "@/components/utils/svg/Skills/MaterialSVG";
@@ -27,35 +26,35 @@ import IllustratorSVG from "@/components/utils/svg/Skills/IllustratorSVG";
 import PrProSVG from "@/components/utils/svg/Skills/PrProSVG";
 import MongooseSVG from "@/components/utils/svg/Skills/MongooseSVG";
 import VSCodeSVG from "@/components/utils/svg/Skills/VSCodeSVG";
+import MongoDbSVG from "@/components/utils/svg/Skills/MongoDbSVG";
 
 const Skill = () => {
   const skillsArray = [
     { id: 1, title: "HTML", svgImage: HtmlSVG },
     { id: 2, title: "CSS", svgImage: CssSVG },
     { id: 3, title: "Tailwind", svgImage: TailwindSVG },
-    { id: 14, title: "PHP", svgImage: PhpSVG },
-    { id: 4, title: "Bootstrap", svgImage: BootstrapSVG },
-    { id: 5, title: "Javascript", svgImage: JS_SVG },
-    { id: 11, title: "Git", svgImage: GitSVG },
-    { id: 6, title: "Typescript", svgImage: TypeScriptSVG },
-    { id: 20, title: "VS Code", svgImage: VSCodeSVG },
-    { id: 7, title: "React", svgImage: ReactSVG },
-    { id: 8, title: "Next JS", svgImage: NextSVG },
-    { id: 9, title: "MongoDB", svgImage: MongoDbSVG },
-    { id: 9, title: "Mongoose", svgImage: MongooseSVG },
-    { id: 10, title: "MySQL", svgImage: MySqlSVG },
-    { id: 10, title: "PostgreSQL", svgImage: PostgressSql },
-    { id: 12, title: "AWS", svgImage: AWS_SVG },
-    { id: 14, title: "Docker", svgImage: DockerSVG },
-    { id: 15, title: "Go", svgImage: GoSVG },
-    { id: 16, title: "Figma", svgImage: FigmaSVG },
-    { id: 17, title: "Firebase", svgImage: FirebaseSVG },
-    { id: 18, title: "MaterialUI", svgImage: MaterialSVG },
-    { id: 20, title: "Strapi", svgImage: StrapiSVG },
-    { id: 20, title: "VS Code", svgImage: VSCodeSVG },
-    { id: 20, title: "Photoshop", svgImage: PhotoshopSVG },
-    { id: 20, title: "Premium pro", svgImage: PrProSVG },
-    { id: 20, title: "Illustrator", svgImage: IllustratorSVG },
+    { id: 4, title: "PHP", svgImage: PhpSVG },
+    { id: 5, title: "Bootstrap", svgImage: BootstrapSVG },
+    { id: 6, title: "Javascript", svgImage: JS_SVG },
+    { id: 7, title: "Git", svgImage: GitSVG },
+    { id: 8, title: "Typescript", svgImage: TypeScriptSVG },
+    { id: 9, title: "React", svgImage: ReactSVG },
+    { id: 10, title: "Next JS", svgImage: NextSVG },
+    { id: 11, title: "MongoDB", svgImage: MongoDbSVG },
+    { id: 12, title: "Mongoose", svgImage: MongooseSVG },
+    { id: 13, title: "MySQL", svgImage: MySqlSVG },
+    { id: 14, title: "PostgreSQL", svgImage: PostgressSql },
+    { id: 15, title: "AWS", svgImage: AWS_SVG },
+    { id: 16, title: "Docker", svgImage: DockerSVG },
+    { id: 17, title: "Go", svgImage: GoSVG },
+    { id: 18, title: "Figma", svgImage: FigmaSVG },
+    { id: 19, title: "Firebase", svgImage: FirebaseSVG },
+    { id: 20, title: "MaterialUI", svgImage: MaterialSVG },
+    { id: 21, title: "Strapi", svgImage: StrapiSVG },
+    { id: 22, title: "VS Code", svgImage: VSCodeSVG },
+    { id: 23, title: "Photoshop", svgImage: PhotoshopSVG },
+    { id: 24, title: "Premium pro", svgImage: PrProSVG },
+    { id: 25, title: "Illustrator", svgImage: IllustratorSVG },
   ];
 
   return (
