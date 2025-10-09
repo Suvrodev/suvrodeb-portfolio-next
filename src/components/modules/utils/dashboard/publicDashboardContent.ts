@@ -15,7 +15,7 @@ export const publicDashboardContents = [
   {
     id: "home",
     label: "Home",
-    href: "#banner",
+    href: "/#banner",
     icon: HomeIcon,
     iconSize: 22,
     mobileIconSize: 18,
@@ -23,7 +23,7 @@ export const publicDashboardContents = [
   {
     id: "about",
     label: "About me",
-    href: "#about",
+    href: "/#about",
     icon: InfoIcon,
     iconSize: 22,
     mobileIconSize: 18,
@@ -31,7 +31,7 @@ export const publicDashboardContents = [
   {
     id: "service",
     label: "Service",
-    href: "#service",
+    href: "/#service",
     icon: ManageAccountsIcon,
     iconSize: 22,
     mobileIconSize: 18,
@@ -39,7 +39,7 @@ export const publicDashboardContents = [
   {
     id: "skill",
     label: "Skill",
-    href: "#skill",
+    href: "/#skill",
     icon: PsychologyIcon,
     iconSize: 22,
     mobileIconSize: 18,
@@ -47,7 +47,7 @@ export const publicDashboardContents = [
   {
     id: "project",
     label: "Project",
-    href: "#project",
+    href: "/#project",
     icon: Boxes,
     iconSize: 20,
     mobileIconSize: 18,
@@ -55,7 +55,7 @@ export const publicDashboardContents = [
   {
     id: "price",
     label: "Price",
-    href: "#price",
+    href: "/#price",
     icon: MonetizationOnIcon,
     iconSize: 22,
     mobileIconSize: 18,
@@ -63,7 +63,7 @@ export const publicDashboardContents = [
   {
     id: "blog",
     label: "Blog",
-    href: "#blog",
+    href: "/#blog",
     icon: AutoStoriesIcon,
     iconSize: 20,
     mobileIconSize: 18,
@@ -71,7 +71,7 @@ export const publicDashboardContents = [
   {
     id: "contact",
     label: "Contact",
-    href: "#contact",
+    href: "/#contact",
     icon: EmailIcon,
     iconSize: 22,
     mobileIconSize: 18,

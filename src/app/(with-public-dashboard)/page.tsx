@@ -37,7 +37,7 @@ const HomePage = () => {
       </div>
 
       <div className="px-5 md:px-36 py-10 aboutmeBgColor" id="project">
-        <Project admin={true} />
+        <Project admin={false} />
       </div>
 
       <div className="px-5 md:px-36 py-10 sColor" id="education">

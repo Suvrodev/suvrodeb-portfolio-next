@@ -26,7 +26,7 @@ const PublicDashboardLayout = ({ children }: IProps) => {
       <div>
         <SocialIconInBody />
         {/* <GotoTop /> */}
-        <div className="md:fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
+        <div className="fixed bottom-10 md:bottom-6 right-4 z-50 md:right-6">
           <FetchResume />
         </div>
       </div>

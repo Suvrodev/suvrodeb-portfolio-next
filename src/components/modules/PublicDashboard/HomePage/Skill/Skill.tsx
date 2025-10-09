@@ -64,7 +64,7 @@ const Skill = () => {
       <div className="w-full mt-12">
         <Marquee
           gradient={false}
-          speed={200}
+          speed={80}
           pauseOnHover={true}
           pauseOnClick={true}
           delay={0}
