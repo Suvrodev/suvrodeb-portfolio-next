@@ -47,6 +47,17 @@ export type TProject = {
   __v: number;
 };
 
+export type TMessage = {
+  _id: string;
+  name: string;
+  email: string;
+  message: string;
+  isRead: boolean;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
 export type TAuthuser = {
   _id: string;
   name: string;
@@ -60,14 +71,4 @@ export type TUser = {
   role: string;
   isBlocked: boolean;
   isDeleted: boolean;
-};
-export type TMessage = {
-  _id: string;
-  name: string;
-  email: string;
-  message: string;
-  isRead: boolean;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
 };
