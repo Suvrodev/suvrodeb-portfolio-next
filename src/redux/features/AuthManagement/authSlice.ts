@@ -14,7 +14,7 @@ const initialState: TAuthState = {
 };
 
 export const userSlice = createSlice({
-  name: "auth",
+  name: "authSlice",
   initialState,
   reducers: {
     setUserData: (state, action) => {
