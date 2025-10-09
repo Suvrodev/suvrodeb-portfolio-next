@@ -1,4 +1,4 @@
-import { baseApi } from "../BaseApi/baseApi";
+import { baseApi } from "@/redux/apis/BaseApi/baseApi";
 
 const messageManagement = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -6,7 +6,7 @@ const messageManagement = baseApi.injectEndpoints({
       query: (data) => {
         console.log("In redux: ", data);
         return {
-          url: "/email",
+          url: "/message",
           method: "POST",
           body: data,
         };
@@ -15,7 +15,7 @@ const messageManagement = baseApi.injectEndpoints({
     getMessage: builder.query({
       query: () => {
         return {
-          url: "/email",
+          url: "/message",
           method: "GET",
         };
       },
@@ -24,7 +24,7 @@ const messageManagement = baseApi.injectEndpoints({
     delteMessage: builder.mutation({
       query: (id: string) => {
         return {
-          url: `/email/${id}`,
+          url: `/message/${id}`,
           method: "DELETE",
         };
       },
@@ -33,7 +33,7 @@ const messageManagement = baseApi.injectEndpoints({
     updateMessage: builder.mutation({
       query: ({ _id, updateData }) => {
         return {
-          url: `/email/update/${_id}`,
+          url: `/message/update/${_id}`,
           method: "PATCH",
           body: updateData,
         };
