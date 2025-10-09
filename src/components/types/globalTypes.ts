@@ -47,8 +47,17 @@ export type TProject = {
   __v: number;
 };
 
-export type Tuser = {
+export type TAuthuser = {
+  _id: string;
   name: string;
   email: string;
-  rol: string;
+  role: string;
+};
+export type TUser = {
+  _id: string;
+  name: string;
+  email: string;
+  role: string;
+  isBlocked: boolean;
+  isDeleted: boolean;
 };
