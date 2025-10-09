@@ -1,4 +1,3 @@
-import "./PublicDashboard.css";
 import Image from "next/image";
 import Link from "next/link";
 import logoImage from "@/app/assets/HeaderImage/myLogo.png";
