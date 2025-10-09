@@ -1,4 +1,4 @@
-import AdminTable from "@/components/modules/AdminInterAction/AdminTable/AdminTable";
+import UserTable from "@/components/modules/AdminDashboard/AllUser/UserTable/UserTable";
 import { TUser } from "@/components/types/globalTypes";
 import config from "@/components/utils/configFile/config";
 import React from "react";
@@ -7,7 +7,7 @@ const AllUserPage = async () => {
   const res = await fetch(`${config.baseApi}/user`, {
     next: {
       revalidate: 1,
-      tags: ["Admin"],
+      tags: ["user"],
     },
   });
   const data = await res.json();
@@ -31,7 +31,7 @@ const AllUserPage = async () => {
           </thead>
           <tbody>
             {admins?.map((admin: TUser, index: number) => (
-              <AdminTable key={index} admin={admin} index={index} />
+              <UserTable key={index} admin={admin} index={index} />
             ))}
           </tbody>
         </table>

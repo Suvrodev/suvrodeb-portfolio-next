@@ -1,9 +1,9 @@
-import { Tuser } from "@/components/types/globalTypes";
+import { TAuthuser } from "@/components/types/globalTypes";
 import { createSlice } from "@reduxjs/toolkit";
 
 // Define a type for the slice state
 interface TAuthState {
-  user: null | Tuser;
+  user: null | TAuthuser;
   token: null | string;
 }
 
@@ -18,7 +18,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setUserData: (state, action) => {
-      const getUser: Tuser = action.payload;
+      const getUser: TAuthuser = action.payload;
       console.log("Get user: ", getUser);
       state.user = getUser;
     },

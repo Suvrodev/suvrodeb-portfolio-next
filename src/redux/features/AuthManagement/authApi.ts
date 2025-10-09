@@ -4,7 +4,7 @@ const authManagement = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     registration: builder.mutation({
       query: (data) => {
-        console.log("User data In redux for Registration: ", data);
+        console.log("User data In redux: ", data);
         return {
           url: "/user/reg",
           method: "POST",
@@ -23,13 +23,12 @@ const authManagement = baseApi.injectEndpoints({
       },
     }),
 
-    getAllUser: builder.mutation({
-      query: ({ id, updateData }) => {
-        console.log("Blog id In redux: ", id);
+    deleteUser: builder.mutation({
+      query: (email) => {
+        console.log("delete user mail in rtk: ", email);
         return {
-          url: `/blog/update/${id}`,
-          method: "PATCH",
-          body: updateData,
+          url: `/user/${email}`,
+          method: "DELETE",
         };
       },
     }),
@@ -39,5 +38,5 @@ const authManagement = baseApi.injectEndpoints({
 export const {
   useRegistrationMutation,
   useLoginMutation,
-  useGetAllUserMutation,
+  useDeleteUserMutation,
 } = authManagement;
