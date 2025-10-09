@@ -81,7 +81,7 @@ export const adminDashboardContents = [
       {
         id: "add-project",
         label: "Add Project",
-        href: "/admin-dashboard/add-project",
+        href: "/admin-dashboard/admin-add-project",
       },
       {
         id: "all-project",

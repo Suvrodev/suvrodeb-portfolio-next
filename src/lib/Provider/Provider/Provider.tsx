@@ -1,9 +1,9 @@
 "use client";
 import { store } from "@/redux/store";
-import { SnackbarProvider } from "notistack";
 import { ReactNode } from "react";
 import { Provider } from "react-redux";
-import { Toaster } from "sonner";
+
+import InnerProvider from "./InnerProvider";
 
 interface IProps {
   children: ReactNode;
@@ -11,16 +11,7 @@ interface IProps {
 const Providers = ({ children }: IProps) => {
   return (
     <Provider store={store}>
-      <SnackbarProvider
-        maxSnack={3}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-      >
-        {children}
-        <Toaster />
-      </SnackbarProvider>
+      <InnerProvider>{children}</InnerProvider>
     </Provider>
   );
 };

@@ -6,7 +6,7 @@ const projectManagement = baseApi.injectEndpoints({
       query: (data) => {
         console.log("Blog data In redux: ", data);
         return {
-          url: "/project",
+          url: "/projects",
           method: "POST",
           body: data,
         };

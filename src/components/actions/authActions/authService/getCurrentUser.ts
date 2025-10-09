@@ -1,11 +1,12 @@
 // 👇 Server action or server-only function
 "use server";
 
+import config from "@/components/utils/configFile/config";
 import { verifyToken } from "@/components/utils/Functions/verifyToken";
 import { cookies } from "next/headers";
 
 export const getCurrentUserToken = async () => {
-  const token = (await cookies()).get("tutor")?.value;
+  const token = (await cookies()).get(config.accessTokenPath as string)?.value;
 
   if (!token) return null;
 
