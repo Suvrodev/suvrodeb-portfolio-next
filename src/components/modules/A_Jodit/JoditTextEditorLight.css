@@ -1,0 +1,89 @@
+/* ===========================
+   ✅ Jodit Editor Custom Styles (fixed)
+   =========================== */
+
+/* Import Jodit core CSS */
+@import url("https://cdn.jsdelivr.net/npm/jodit@4.2.24/es2021/jodit.min.css");
+
+/* ----- Toolbar / UI Styling ----- */
+.jodit-toolbar__box,
+.jodit-toolbar-editor-collection {
+  background: #f7f7f7 !important;
+  border: 1px solid #e5e7eb !important;
+  border-bottom: none !important;
+  border-radius: 10px 10px 0 0 !important;
+}
+
+.jodit-container:not(.jodit_inline) .jodit-wysiwyg {
+  min-height: 360px;
+  background: #ffffff;
+}
+
+.jodit-workplace {
+  border: 1px solid #e5e7eb !important;
+  border-top: none !important;
+  border-radius: 0 0 10px 10px !important;
+  overflow: hidden;
+}
+
+.jodit-status-bar {
+  border-top: 1px solid #e5e7eb !important;
+  background: #fafafa !important;
+}
+
+.jodit-toolbar-button__button {
+  height: 34px !important;
+  min-width: 34px !important;
+}
+
+.jodit-toolbar-button:hover .jodit-toolbar-button__button {
+  background: #efefef !important;
+}
+
+.jodit-ui-separator {
+  background: #e5e7eb !important;
+}
+
+.jodit-ui-input__input,
+.jodit-ui-select__select {
+  border-radius: 8px !important;
+}
+
+/* ===== List: spacing only (do NOT force styles) ===== */
+.jodit-wysiwyg ol,
+.jodit-wysiwyg ul {
+  list-style-position: outside; /* keep markers outside */
+  margin-left: 1.25rem;
+  padding-left: 1.25rem;
+  /* list-style-image: none; */ /* use only if images ever override markers */
+}
+
+/* ✅ ADD: neutralize any global reset so defaults return */
+.jodit-wysiwyg ul,
+.jodit-wysiwyg ol {
+  list-style: revert;
+}
+
+.jodit-wysiwyg li {
+  display: list-item; /* ensure list semantics */
+}
+
+/* ✅ Marker appearance (no content override!) */
+.jodit-wysiwyg li::marker {
+  color: #000; /* you can tweak size if you want */
+  /* font-size: 1.05em; */
+}
+
+/* ✅ REPLACE: Baseline only when no inline type from Jodit */
+.jodit-wysiwyg ul:not([style*="list-style-type"]) {
+  list-style-type: disc;
+}
+.jodit-wysiwyg ol:not([style*="list-style-type"]) {
+  list-style-type: decimal;
+}
+
+/* ❌ Removed:
+   - .jodit-wysiwyg ul { list-style-type: disc !important; }
+   - .jodit-wysiwyg ul li::marker, .jodit-wysiwyg ol li::marker { content: "• "; ... }
+   এগুলো Jodit-এর list-style নির্বাচনকে নষ্ট করছিল।
+*/

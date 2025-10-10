@@ -1,4 +1,4 @@
-import AddProject from "@/components/modules/PublicDashboard/HomePage/Project/AddProject/AddProject";
+import AddProject from "@/components/modules/AdminDashboard/Project/AddProject/AddProject";
 import React from "react";
 
 const AdminAddProjectPage = () => {

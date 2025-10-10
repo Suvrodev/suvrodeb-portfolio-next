@@ -50,7 +50,7 @@ const BlogDetailPage = async ({ params }: IProps) => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link
-              href="/blog"
+              href="/#blog"
               className="group flex items-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all duration-300 font-medium"
             >
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
@@ -58,7 +58,7 @@ const BlogDetailPage = async ({ params }: IProps) => {
             </Link>
             <div className="flex items-center space-x-4">
               <span className="text-sm text-slate-500 dark:text-slate-400">
-                {readingTime} min read
+                {readingTime} min reading Time
               </span>
             </div>
           </div>
@@ -90,7 +90,7 @@ const BlogDetailPage = async ({ params }: IProps) => {
           <div className="flex flex-wrap justify-center items-center gap-4 text-slate-600 dark:text-slate-400 text-sm">
             <div className="flex items-center">
               <Clock className="w-4 h-4 mr-1" />
-              {readingTime} min read
+              {readingTime} min reading Time
             </div>
             <div className="flex items-center">
               <Tag className="w-4 h-4 mr-1" />
@@ -123,7 +123,7 @@ const BlogDetailPage = async ({ params }: IProps) => {
         <footer className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-700">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <Link
-              href="/blog"
+              href="/#blog"
               className="group inline-flex items-center px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold rounded-lg hover:bg-slate-700 dark:hover:bg-slate-200 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
