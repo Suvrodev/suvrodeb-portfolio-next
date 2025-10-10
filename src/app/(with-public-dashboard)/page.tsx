@@ -50,10 +50,7 @@ const HomePage = () => {
         <Pricing />
       </div>
 
-      <div
-        className="px-5 md:px-36 py-10 overflow-hidden bg-green-300"
-        id="blog"
-      >
+      <div className="px-5 md:px-36 py-10 overflow-hidden " id="blog">
         <Blog />
       </div>
       <div className="px-5 md:px-36 py-10 sColor" id="contact">
