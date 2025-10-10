@@ -12,7 +12,7 @@ interface Props {
 
 const AdminDrawerMobileHeader = ({ isOpen, setIsOpen }: Props) => {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md p-4 flex justify-between items-center">
+    <div className="fixed top-0 left-0 right-0 z-20 bg-white shadow-md p-4 flex justify-between items-center">
       <Link href={"/"} className="flex items-center gap-x-2">
         <Image
           src={logoImage}

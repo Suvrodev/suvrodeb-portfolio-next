@@ -36,7 +36,6 @@ const AdminDrawer = ({ isOpen, setIsOpen }: Props) => {
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
         className={`
           fixed top-0 left-0 h-screen 
-         
            bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900/90
           z-50 shadow-xl p-6 w-72 border-r border-green-200
           md:sticky md:top-0 md:h-screen md:translate-x-0 md:flex-shrink-0
