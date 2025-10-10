@@ -19,7 +19,7 @@ const HomePage = () => {
         <Banner />
       </div>
 
-      <div className=" px-5 md:px-28 py-10 " id="about">
+      <div className=" px-5 md:px-28 py-0 " id="about">
         <AboutMe />
       </div>
 

@@ -18,7 +18,7 @@ const eduFont = Edu_VIC_WA_NT_Beginner({
 
 export const metadata: Metadata = {
   title: "Suvrodeb Howlader",
-  description: "Welcome to Suvrodeb Portfolio",
+  description: "Welcome to Suvrodeb Portfolio (Mern Stack developer)",
 };
 
 export default function RootLayout({

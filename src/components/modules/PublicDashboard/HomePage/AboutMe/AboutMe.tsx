@@ -17,7 +17,7 @@ const AboutMe = () => {
         everything about me!
       </h1>
 
-      <div className="flex flex-col md:flex-row gap-16 md:gap-24  md:h-[577px] ">
+      <div className="flex flex-col md:flex-row gap-16 md:gap-24  ">
         <div className="w-full md:w-1/2 flex items-center justify-center relative  ">
           <Image
             src={suvrodebImage}
@@ -56,7 +56,7 @@ const AboutMe = () => {
             className=" rounded-md absolute bottom-0 md:bottom-10 right-0 abtAnim"
           />
         </div>
-        <div className="w-full md:w-1/2 h-full flex flex-col items-start justify-center ">
+        <div className="w-full md:w-1/2 h-auto flex flex-col items-start justify-center ">
           <div>
             <span className="subTitle">Welcome to my world</span>
             <h1 className="aboutTitle flex items-center gap-x-4">
@@ -85,7 +85,7 @@ const AboutMe = () => {
               }
             </div>
           </div>
-          <h1 className="text-2xl font-bold pText uppercase my-4">-About Me</h1>
+          <h2 className="text-2xl font-bold pText uppercase my-4">-About Me</h2>
           <p className="text-justify ">
             <span className="reduceOpacity">
               I am a highly skilled MERN stack developer specializing in
