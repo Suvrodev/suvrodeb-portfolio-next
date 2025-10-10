@@ -51,7 +51,7 @@ const HomePage = () => {
       </div>
 
       <div className="px-5 md:px-36 py-10 overflow-hidden " id="blog">
-        <Blog />
+        <Blog admin={false} />
       </div>
       <div className="px-5 md:px-36 py-10 sColor" id="contact">
         <Contact />

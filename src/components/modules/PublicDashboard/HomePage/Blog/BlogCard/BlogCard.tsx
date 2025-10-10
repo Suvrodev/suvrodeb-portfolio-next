@@ -2,19 +2,23 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { Trash2, CalendarDays } from "lucide-react";
+import { Trash2, CalendarDays, Pencil } from "lucide-react";
 import { useRouter } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { TBlog } from "@/components/types/globalTypes";
 import { formatDate } from "@/components/utils/Functions/formatDate";
+import { useDeleteBlogMutation } from "@/redux/features/BlogManagement/blogmanagement";
+import { loadingToast, okToast } from "@/components/utils/Toast/toast";
+import { handleRevalidate } from "@/components/actions/apiActions/handleRevalidate";
 
 interface IProps {
   blog: TBlog;
   admin?: boolean;
 }
 
-const BlogCard = ({ blog, admin = false }: IProps) => {
+const BlogCard = ({ blog, admin }: IProps) => {
+  const [deleteBlog] = useDeleteBlogMutation();
   const { _id, title, image, category, content, createdAt } = blog;
 
   const router = useRouter();
@@ -42,6 +46,16 @@ const BlogCard = ({ blog, admin = false }: IProps) => {
   const handleGoBlogDetail = (_id: string) => {
     // if (path !== "/blog") return;
     router.push(`/blog/${_id}`);
+  };
+
+  const handleDelete = async (id: string) => {
+    loadingToast("Deleting Blog...");
+    const res = await deleteBlog(id).unwrap();
+    console.log("Res: ", res);
+    if (res?.status) {
+      okToast("Blog Deleted Successfully");
+      handleRevalidate();
+    }
   };
 
   return (
@@ -89,10 +103,24 @@ const BlogCard = ({ blog, admin = false }: IProps) => {
         </div>
       </div>
 
+      {/* --- Admin Buttons --- */}
       {admin && (
-        <div className="absolute top-2 right-2 flex space-x-2">
-          <button className="p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
-            <Trash2 className="text-red-500 font-bold" />
+        <div className="absolute top-3 right-3 flex gap-2 z-20">
+          <button
+            className="p-2 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white shadow-md hover:scale-110 hover:shadow-lg transition"
+            title="Update Project"
+          >
+            <Pencil size={18} />
+          </button>
+          <button
+            className="p-2 rounded-full bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md hover:scale-110 hover:shadow-lg transition"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDelete(_id);
+            }}
+            title="Delete Project"
+          >
+            <Trash2 size={18} />
           </button>
         </div>
       )}

@@ -1,5 +1,6 @@
 import AboutMe from "@/components/modules/PublicDashboard/HomePage/AboutMe/AboutMe";
 import Banner from "@/components/modules/PublicDashboard/HomePage/Banner/Banner";
+import Blog from "@/components/modules/PublicDashboard/HomePage/Blog/Blog";
 import Contact from "@/components/modules/PublicDashboard/HomePage/Contact/Contact";
 import Education from "@/components/modules/PublicDashboard/HomePage/Education/Education";
 import Experience from "@/components/modules/PublicDashboard/HomePage/Experience/Experience";
@@ -47,6 +48,11 @@ const AdminDashboardPage = () => {
       <div className="px-5 md:px-36 py-10 sColor" id="price">
         <Pricing />
       </div>
+
+      <div className="px-5 md:px-36 py-10 overflow-hidden " id="blog">
+        <Blog admin={true} />
+      </div>
+
       <div className="px-5 md:px-36 py-10 sColor" id="price">
         <Contact />
       </div>
