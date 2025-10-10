@@ -31,11 +31,22 @@ const blogManagement = baseApi.injectEndpoints({
         };
       },
     }),
+
+    // 🆕 getSingleBlog Query
+    getSingleBlog: builder.query({
+      query: (id) => {
+        console.log("Get single blog id:", id);
+        return {
+          url: `/blog/${id}`,
+          method: "GET",
+        };
+      },
+    }),
   }),
 });
-
 export const {
   useAddblogMutation,
+  useGetSingleBlogQuery,
   useDeleteBlogMutation,
   useUpdateBlogMutation,
 } = blogManagement;

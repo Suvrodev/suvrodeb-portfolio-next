@@ -11,6 +11,7 @@ import { formatDate } from "@/components/utils/Functions/formatDate";
 import { useDeleteBlogMutation } from "@/redux/features/BlogManagement/blogmanagement";
 import { loadingToast, okToast } from "@/components/utils/Toast/toast";
 import { handleRevalidate } from "@/components/actions/apiActions/handleRevalidate";
+import Link from "next/link";
 
 interface IProps {
   blog: TBlog;
@@ -106,12 +107,17 @@ const BlogCard = ({ blog, admin }: IProps) => {
       {/* --- Admin Buttons --- */}
       {admin && (
         <div className="absolute top-3 right-3 flex gap-2 z-20">
-          <button
-            className="p-2 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white shadow-md hover:scale-110 hover:shadow-lg transition"
-            title="Update Project"
+          <Link
+            href={`/admin-dashboard/update-blog/${_id}`}
+            onClick={(e) => e.stopPropagation()}
           >
-            <Pencil size={18} />
-          </button>
+            <button
+              className="p-2 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white shadow-md hover:scale-110 hover:shadow-lg transition"
+              title="Update Project"
+            >
+              <Pencil size={18} />
+            </button>
+          </Link>
           <button
             className="p-2 rounded-full bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md hover:scale-110 hover:shadow-lg transition"
             onClick={(e) => {
