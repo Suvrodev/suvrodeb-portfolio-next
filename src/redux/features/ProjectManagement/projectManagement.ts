@@ -4,7 +4,7 @@ const projectManagement = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     addProject: builder.mutation({
       query: (data) => {
-        console.log("Blog data In redux: ", data);
+        console.log("Project data In redux: ", data);
         return {
           url: "/projects",
           method: "POST",
@@ -14,7 +14,7 @@ const projectManagement = baseApi.injectEndpoints({
     }),
     deleteProject: builder.mutation({
       query: (id) => {
-        console.log("Blog id In redux: ", id);
+        console.log("Project id In redux: ", id);
         return {
           url: `/projects/${id}`,
           method: "DELETE",
@@ -23,9 +23,9 @@ const projectManagement = baseApi.injectEndpoints({
     }),
     updateProject: builder.mutation({
       query: ({ id, updateData }) => {
-        console.log("Blog id In redux: ", id);
+        console.log("Project id In redux: ", id);
         return {
-          url: `/project/update/${id}`,
+          url: `/projects/update/${id}`,
           method: "PATCH",
           body: updateData,
         };

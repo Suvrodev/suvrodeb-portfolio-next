@@ -1,6 +1,5 @@
 "use client";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { TProject } from "@/components/types/globalTypes";
 import AOS from "aos";
@@ -14,6 +13,7 @@ import goLink from "@/components/utils/Functions/goLink";
 import { loadingToast, okToast } from "@/components/utils/Toast/toast";
 import { useDeleteProjectMutation } from "@/redux/features/ProjectManagement/projectManagement";
 import { handleRevalidate } from "@/components/actions/apiActions/handleRevalidate";
+import Link from "next/link";
 
 interface IProps {
   project: TProject;
@@ -23,7 +23,6 @@ interface IProps {
 const ProjectBox = ({ project, admin }: IProps) => {
   const { _id, liveurl, image, name, frontendrepo, backendrepo } = project;
   const [deleteProject] = useDeleteProjectMutation();
-  const router = useRouter();
 
   useEffect(() => {
     AOS.init({ duration: 1200 });
@@ -38,10 +37,6 @@ const ProjectBox = ({ project, admin }: IProps) => {
     }
   };
 
-  const handleUpdate = (_id: string) => {
-    router.push(`/admin-dashboard/update-project/${_id}`);
-  };
-
   return (
     <div
       data-aos="fade-up"
@@ -50,13 +45,14 @@ const ProjectBox = ({ project, admin }: IProps) => {
       {/* --- Admin Buttons --- */}
       {admin && (
         <div className="absolute top-3 right-3 flex gap-2 z-20">
-          <button
-            className="p-2 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white shadow-md hover:scale-110 hover:shadow-lg transition"
-            onClick={() => handleUpdate(_id)}
-            title="Update Project"
-          >
-            <Pencil size={18} />
-          </button>
+          <Link href={`/admin-dashboard/update-project/${_id}`}>
+            <button
+              className="p-2 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white shadow-md hover:scale-110 hover:shadow-lg transition"
+              title="Update Project"
+            >
+              <Pencil size={18} />
+            </button>
+          </Link>
           <button
             className="p-2 rounded-full bg-gradient-to-r from-red-500 to-pink-500 text-white shadow-md hover:scale-110 hover:shadow-lg transition"
             onClick={() => handleDelete(_id)}

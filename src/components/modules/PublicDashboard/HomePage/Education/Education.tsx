@@ -16,7 +16,7 @@ const Education = () => {
 
   return (
     <div className="w-full    ">
-      <h1 className=" font-bold  my-4 text-center md:text-left">Education</h1>
+      <h1 className=" text-2xl font-bold pText mb-10">Education</h1>
       <div className="flex flex-col-reverse md:flex-row gap-4 items-center">
         <div className="flex h-auto w-full md:w-[60%]  ">
           <div className="w-[2px] pColor h-auto flex justify-center ">
